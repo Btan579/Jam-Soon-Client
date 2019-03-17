@@ -2,11 +2,11 @@ import React from 'react';
 
 import './Home.css';
 
-export default class Home extends React.Component {
+export default class Login extends React.Component {
     render() {
     
         return (
-            <div className="home-section">
+            <div className="login-container">
                 <section>
                     <p>[Landing page cover photo/image Jamsoon placeholder]</p>
                     <button>Discover more</button>

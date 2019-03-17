@@ -5,7 +5,7 @@ import Login from "./components/Login";
 import Register from "./components/Register";
 import CalendarSearch from "./components/CalendarSearch";
 import Events from "./components/Events";
-import Favorites from "./components/Favorites";
+// import Favorites from "./components/Favorites";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import './App.css';
@@ -27,7 +27,7 @@ class App extends Component {
       <section className="logged-in">
           <CalendarSearch />
           <Events />
-          <Favorites />
+          {/* <Favorites /> */}
       </section>
       <Footer />
       </div>
