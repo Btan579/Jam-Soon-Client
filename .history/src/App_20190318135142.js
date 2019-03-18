@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import TopNav from "./components/TopNav";
-import Home from "./components/Home";
+// import Home from "./components/Home";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import CalendarSearch from "./components/CalendarSearch";
@@ -19,7 +19,7 @@ class App extends Component {
       <TopNav />
       <Header />
       <section className="landing-register">
-        <Home />
+        {/* <Home /> */}
         <Register />
       </section>
       <section className="logged-out">

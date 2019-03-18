@@ -1,12 +1,34 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 import './Events.css';
 
-export class Events extends React.Component {
+export default class Events extends React.Component {
    
     
     render() {
-         const MockEvent = this.props.MockEvent;
+         const MockEvent = {
+            eventDay: "October 31st 2020",
+            Event: {
+                eventName: "Monster Mash: Featuring No Doubt",
+                artists: {
+                    firstArtist: "No Doubt",
+                    secondArtist: "Smashmouth",
+                },
+                venue: {
+                    venueName: "Club60",
+                    venueAddress: "123 Main St.",
+                    venueCity: "Boston",
+                    venueZip: "02110",
+                    venueState: "MA",
+                    venueCountry: "USA",
+                    venueWesbite: "www.club60.com",
+                    venuePhone: "781-888-444",
+                    venueDescription: "First opened in 1962, Club 60 is a diamond in the rough"
+                }
+            }
+ 
+         };
+
         return (
             <div className="event-section">
                 <header>
@@ -47,9 +69,3 @@ export class Events extends React.Component {
         );
     }
 }
-
-const mapStateToProps = state => ({
-    MockEvent: state.MockEvent
-});
-
-export default connect(mapStateToProps)(Events);

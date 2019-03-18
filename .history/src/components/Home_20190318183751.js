@@ -8,7 +8,7 @@ export default class Home extends React.Component {
         return (
             <div className="home-section">
                 <section>
-                    <p>[Landing page cover photo/image Jamsoon placeholder]</p>
+                    <p>[Landing page cover photo-image Jamsoon placeholder]</p>
                     <button>Discover more</button>
                 </section>
                 <section>
