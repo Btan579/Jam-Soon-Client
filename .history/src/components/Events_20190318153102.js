@@ -1,12 +1,12 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import {connect} from 'react-redux';
 import './Events.css';
 
 export class Events extends React.Component {
    
     
     render() {
-         const MockEvent = this.props.MockEvent;
+         
         return (
             <div className="event-section">
                 <header>

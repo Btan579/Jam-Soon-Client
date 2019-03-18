@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import './Favorites.css';
 
-export class Favorites extends React.Component {
+export default class Favorites extends React.Component {
     render() {
         const MockFavorites = this.props.MockFavorites;
         return (
