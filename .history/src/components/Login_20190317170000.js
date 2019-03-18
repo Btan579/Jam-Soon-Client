@@ -12,11 +12,11 @@ export default class Login extends React.Component {
                 </header>
                 <form className='login-form'>
                     <div>
-                        <label htmlFor="user-name">Username</label>
+                        <label for="user-name">Username</label>
                         <input placeholder='User123' type="text" name='user-name' id='user-name' />
                     </div>
                     <div>
-                        <label htmlFor="password">Password</label>
+                        <label for="password">Password</label>
                         <input type="password" name='password' id='password' />
                     </div>
                         <button type='submit'>Submit</button>
