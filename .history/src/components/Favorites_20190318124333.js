@@ -15,7 +15,7 @@ export default class CalendarSearch extends React.Component {
                 event: {
                     eventName: "Lollapalooza",
                     date: "8/10/1997",
-                    artists: ["Metallica, ", "Janes Addiction"],
+                    artists: ["Metallica", "Janes Addiction"],
                     venue: "Madison Square Garden",
                     city: "New York",
                     state: "New York",
@@ -35,26 +35,26 @@ export default class CalendarSearch extends React.Component {
                             <h2>Artists</h2>
                         </header>
                         <div className="favorite-artist-cont">
-                            <h3>{MockFavorites.favoriteArtists.artist.name}</h3>
-                            <p>[playlist placeholder] {MockFavorites.favoriteArtists.artist.playlist}</p>
+                            <h3>Artist</h3>
                             <button>Delete</button>
                         </div>
                     </div>
                     <div className="favorite-events-cont">
                         <header>
-                            <h2>Events</h2>
+                            <h2>Event Name</h2>
                         </header>
-                        <h3>{MockFavorites.favoriteEvents.event.eventName}</h3>
-                        <h3>Artists: {MockFavorites.favoriteEvents.event.artists}</h3>
+                        <h3>Artists</h3>
                         <div className="favorite-event-cont">
                             <h3>Venue</h3>
-                            <h4>{MockFavorites.favoriteEvents.event.venue}
-                            </h4>
-                            <h4>Date: {MockFavorites.favoriteEvents.event.date}</h4>
-                            <h4>City: {MockFavorites.favoriteEvents.event.city}</h4>
-                            <h4>Zip: {MockFavorites.favoriteEvents.event.zip}</h4>
-                            <h4>State: : {MockFavorites.favoriteEvents.event.state}</h4>
-                            <h4>Country: {MockFavorites.favoriteEvents.event.country}</h4>
+                            <h4>Venue name</h4>
+                            <h4>Address</h4>
+                            <h4>City</h4>
+                            <h4>Zip</h4>
+                            <h4>State</h4>
+                            <h4>Country</h4>
+                            <h4>Webite</h4>
+                            <h4>Phone</h4>
+                            <h4>Description</h4>
                         </div>
                         <button>Delete</button>
                     </div>

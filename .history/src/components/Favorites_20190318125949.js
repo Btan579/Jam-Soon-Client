@@ -15,7 +15,7 @@ export default class CalendarSearch extends React.Component {
                 event: {
                     eventName: "Lollapalooza",
                     date: "8/10/1997",
-                    artists: ["Metallica, ", "Janes Addiction"],
+                    artists: ["Metallica ", "Janes Addiction"],
                     venue: "Madison Square Garden",
                     city: "New York",
                     state: "New York",
@@ -48,7 +48,7 @@ export default class CalendarSearch extends React.Component {
                         <h3>Artists: {MockFavorites.favoriteEvents.event.artists}</h3>
                         <div className="favorite-event-cont">
                             <h3>Venue</h3>
-                            <h4>{MockFavorites.favoriteEvents.event.venue}
+                            <h4>Venue name: {MockFavorites.favoriteEvents.event.venue}
                             </h4>
                             <h4>Date: {MockFavorites.favoriteEvents.event.date}</h4>
                             <h4>City: {MockFavorites.favoriteEvents.event.city}</h4>
