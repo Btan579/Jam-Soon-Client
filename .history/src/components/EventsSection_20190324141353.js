@@ -57,12 +57,11 @@ export default function EventsSection(props) {
                     <h5>Description: {props.venueDescription}</h5>
                 </div>
                 <button>Favorite event</button>
-                
             </div>
     );
 };
 
-EventsSection.defaultProps = {
+Card.defaultProps = {
     eventDay: "",
     eventName: "",
     headliner: "",

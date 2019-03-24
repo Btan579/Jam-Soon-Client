@@ -55,8 +55,8 @@ export default function EventsSection(props) {
                     <h5>Website: {props.venueWesbite}</h5>
                     <h5>Phone: {props.venuePhone}</h5>
                     <h5>Description: {props.venueDescription}</h5>
+                    <button>Favorite event</button>
                 </div>
-                <button>Favorite event</button>
                 
             </div>
     );
