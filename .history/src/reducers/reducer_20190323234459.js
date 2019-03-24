@@ -17,7 +17,7 @@ const initialState = {
             venuePhone: "781-888-444",
             venueDescription: "First opened in 1962, Club 60 is a diamond in the rough"
             }
-        
+        }
     ],
     favoriteArtists: [
         {

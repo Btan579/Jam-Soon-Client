@@ -3,21 +3,28 @@ const initialState = {
         {
             eventDay: "October 31st 2020",
             eventName: "Monster Mash: Featuring No Doubt",
-            headliner: "No Doubt",
-            headlinerPlaylist: "youtube.net/nodoubt",
-            secondArtist: "Smashmouth",
-            secondArtistPlaylist: "youtube.net/smashmouth",
-            venueName: "Club60",
-            venueAddress: "123 Main St.",
-            venueCity: "Boston",
-            venueZip: "02110",
-            venueState: "MA",
-            venueCountry: "USA",
-            venueWesbite: "www.club60.com",
-            venuePhone: "781-888-444",
-            venueDescription: "First opened in 1962, Club 60 is a diamond in the rough"
+            artists: {
+                headliner: {
+                    name:"No Doubt",
+                    playlist: "youtube.net/nodoubt"
+                },
+                secondArtist: {
+                    name: "Smashmouth",
+                    playlist: "youtube.net/smashmouth"
+                }
+            },
+            venue: {
+                venueName: "Club60",
+                venueAddress: "123 Main St.",
+                venueCity: "Boston",
+                venueZip: "02110",
+                venueState: "MA",
+                venueCountry: "USA",
+                venueWesbite: "www.club60.com",
+                venuePhone: "781-888-444",
+                venueDescription: "First opened in 1962, Club 60 is a diamond in the rough"
             }
-        
+        }
     ],
     favoriteArtists: [
         {

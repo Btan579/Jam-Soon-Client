@@ -8,7 +8,7 @@ import HomePage from "./containers/HomePage";
 import LoginPage from "./containers/LoginPage";
 import RegisterPage from "./containers/RegisterPage";
 import FavoritesPage from "./containers/FavoritesPage";
-import './App.css';
+import '../styles/App.css';
 
 class App extends Component {
   render() {

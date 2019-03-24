@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import '../styles/Events.css';
+import '../styles/EventsSection.css';
 
-export class Events extends React.Component {
+export class EventsSection extends React.Component {
    
     
     render() {
