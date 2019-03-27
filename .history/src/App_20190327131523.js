@@ -12,7 +12,7 @@ import LoginPage from "./containers/LoginPage";
 import RegisterPage from "./containers/RegisterPage";
 import FavoritesPage from "./containers/FavoritesPage";
 import './App.css';
-import store from "./store";
+import store from "../store";
 
 class App extends Component {
   render() {
