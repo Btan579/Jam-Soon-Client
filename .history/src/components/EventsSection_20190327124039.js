@@ -1,7 +1,7 @@
 import React from 'react';
 // import { connect } from 'react-redux';
 import '../styles/EventsSection.css';
-
+import DatePicker from 'react-date-picker';
 
 export default function EventsSection(props) {
     return (

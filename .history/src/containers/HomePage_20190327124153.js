@@ -37,7 +37,6 @@ export class HomePage extends React.Component {
             <div className="home-page">
                 <TopNav />
                 <Header />
-                <DatePicker />
                 <CalendarSearchSection />
                 {events}
                 <Footer />
