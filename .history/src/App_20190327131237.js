@@ -16,7 +16,6 @@ import './App.css';
 class App extends Component {
   render() {
     return (
-      <Provider store={store} >
       <Router>
         <div className="App">
           <Route exact path="/" component={LandingPage} />
@@ -26,7 +25,7 @@ class App extends Component {
             <Route exact path="/home" component={HomePage} />
         </div>
       </Router>
-       </Provider>
+      
     );
   }
 }
