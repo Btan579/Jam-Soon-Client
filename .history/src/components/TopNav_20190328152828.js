@@ -19,4 +19,4 @@ const mapStateToProps = state => ({
   currentUser: state.currentUser
 });
 
-export default connect(mapStateToProps)(TopNav);
+export default connect(mapStateToProps)(Nav);

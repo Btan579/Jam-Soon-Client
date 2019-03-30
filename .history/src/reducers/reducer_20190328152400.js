@@ -2,8 +2,7 @@ const initialState = {
     currentUser: {  
         username: "btan579"
     },
-    searchCity: "Boston",
-    searchDate: "4/19/2019",
+
     events: [
         {
             eventDay: "October 31st 2020",

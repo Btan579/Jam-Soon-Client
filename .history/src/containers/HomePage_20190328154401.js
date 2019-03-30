@@ -5,7 +5,7 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import CalendarSearchSection from "../components/CalendarSearchSection";
 import EventsSection from "../components/EventsSection";
-// import DatePicker from 'react-date-picker';
+import DatePicker from 'react-date-picker';
 
 import '../styles/HomePage.css';
 

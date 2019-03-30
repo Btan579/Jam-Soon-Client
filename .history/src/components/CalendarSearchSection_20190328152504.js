@@ -19,9 +19,9 @@ export default class CalendarSearchSection extends React.Component {
                     <input placeholder='Find concerts for any city' type="text" name='metro-search' id='metro-search' />
                 </div>
 
-                <button type='submit'>Set area</button>
-                <DatePicker />     
+                <button type='submit'>Submit</button>
             </form>
+            <DatePicker />     
             </div>
             
         );

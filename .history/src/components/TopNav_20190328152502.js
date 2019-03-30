@@ -3,7 +3,7 @@ import "../styles/TopNav.css";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
-export  function TopNav() {
+export default function TopNav() {
     return (
     <nav role="navigation">
       <Link to="/home"><span>Home</span></Link>
@@ -19,4 +19,4 @@ const mapStateToProps = state => ({
   currentUser: state.currentUser
 });
 
-export default connect(mapStateToProps)(TopNav);
+export default connect(mapStateToProps)(Nav);
