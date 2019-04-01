@@ -114,7 +114,7 @@ export const reducer = (state = initialState, action) => {
             favoriteEvents: [...state.favoriteEvents, {
                  favEventName: action.favEventName,
                  favDate: action.favDate,
-                 favHeadliner: action.favHeadliner,
+                 favHeadliner: action. favHeadliner,
                  favSupportingArtists: action.favSupportingArtists,
                  favVenue: action.favVenue,
                  favCity: action.favCity,

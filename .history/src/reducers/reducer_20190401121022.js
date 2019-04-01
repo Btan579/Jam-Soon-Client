@@ -2,8 +2,7 @@ import {
     SET_SEARCH_CITY,
     SET_SEARCH_DATE,
     SET_API_DATE,
-    ADD_FAVORITE_ARTIST,
-    ADD_FAVORITE_EVENT
+    ADD_FAVORITE_ARTIST
 } from '../actions';
 
 const initialState = {
@@ -11,8 +10,8 @@ const initialState = {
         username: "btan579"
     },
     currentSearchCity: "Boston",
-    currentSearchDate: "10/31/2019",
-    currentApiDate: "2020/10/31",
+    currentSearchDate: "4/19/2019",
+    currentApiDate: "2019/4/19",
     events: [
         {
             eventDay: "October 31st 2020",
@@ -41,26 +40,15 @@ const initialState = {
     ],
     favoriteEvents: [
         {
-            favEventName: "Lollapalooza",
-            favDate: "8/10/1997",
-            favHeadliner: "Metallica",
-            favSupportingArtists: ["Janes Addiction", "Deadmau5"],
-            favVenue: "Madison Square Garden",
-            favCity: "New York",
-            favState: "New York",
-            favZip: "08181",
-            favCountry: "USA"
-        },
-        {
-            favEventName: "NYE Times Square",
-            favDate: "12/31/1999",
-            favHeadliner: "Coldplay",
-            favSupportingArtists: ["Lil Wayne", "Deadmau5"],
-            favVenue: "Madison Square Garden",
-            favCity: "New York",
-            favState: "New York",
-            favZip: "08181",
-            favCountry: "USA"
+            FavEventName: "Lollapalooza",
+            FavDate: "8/10/1997",
+            FavHeadliner: "Metallica",
+            FavSupportingArtists: ["Janes Addiction", "Deadmau5"],
+            FavVenue: "Madison Square Garden",
+            FavCity: "New York",
+            FavState: "New York",
+            FavZip: "08181",
+            FavCountry: "USA"
         }
     ],
     landingSections : [
@@ -106,21 +94,6 @@ export const reducer = (state = initialState, action) => {
             favoriteArtists: [...state.favoriteArtists, {
                     name: action.name,
                     playlist: action.playlist
-            }]
-        });
-    }
-    if (action.type === ADD_FAVORITE_EVENT) {
-        return Object.assign({}, state, {
-            favoriteEvents: [...state.favoriteEvents, {
-                 favEventName: action.favEventName,
-                 favDate: action.favDate,
-                 favHeadliner: action.favHeadliner,
-                 favSupportingArtists: action.favSupportingArtists,
-                 favVenue: action.favVenue,
-                 favCity: action.favCity,
-                 favState: action.favState,
-                 favZip: action.favZip,
-                 favCountry: action.favCountry
             }]
         });
     }

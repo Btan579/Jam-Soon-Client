@@ -57,7 +57,6 @@ export class EventsSection extends React.Component {
                     <button>Favorite artist</button>
                     <div className="venue-cont">
                         <h4>Venue</h4>
-                        <h5>{this.props.eventDay}</h5>
                         <h5>Venue name: {this.props.venueName}</h5>
                         <h5>Address: {this.props.venueAddress}</h5>
                         <h5>City: {this.props.venueCity}</h5>
@@ -67,7 +66,6 @@ export class EventsSection extends React.Component {
                         <h5>Website: {this.props.venueWesbite}</h5>
                         <h5>Phone: {this.props.venuePhone}</h5>
                         <h5>Description: {this.props.venueDescription}</h5>
-                        {this.props.eventDay}
                     </div>
                     <button type="button" onClick={() => this.saveEvent(
                         this.props.eventName,

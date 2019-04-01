@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import '../styles/EventsSection.css';
-import {addFavoriteArtist, addFavoriteEvent} from '../actions';
+import {addFavoriteArtist} from '../actions';
 
 export class EventsSection extends React.Component {
     constructor(props) {
@@ -41,7 +41,7 @@ export class EventsSection extends React.Component {
           const favState = this.props.venueState;
           const favZip = this.props.venueZip;
           const favCountry = this.props.venueCountry;
-        this.props.dispatch(addFavoriteEvent(favEventName, favDate, favHeadliner, favSupportingArtists, favVenue, favCity, favState, favZip, favCountry));
+        //    this.props.dispatch(addFavoriteArtist(name, playlist));
         //    console.log(name);
         //    console.log(playlist);
        }
@@ -57,7 +57,6 @@ export class EventsSection extends React.Component {
                     <button>Favorite artist</button>
                     <div className="venue-cont">
                         <h4>Venue</h4>
-                        <h5>{this.props.eventDay}</h5>
                         <h5>Venue name: {this.props.venueName}</h5>
                         <h5>Address: {this.props.venueAddress}</h5>
                         <h5>City: {this.props.venueCity}</h5>
@@ -67,18 +66,8 @@ export class EventsSection extends React.Component {
                         <h5>Website: {this.props.venueWesbite}</h5>
                         <h5>Phone: {this.props.venuePhone}</h5>
                         <h5>Description: {this.props.venueDescription}</h5>
-                        {this.props.eventDay}
                     </div>
-                    <button type="button" onClick={() => this.saveEvent(
-                        this.props.eventName,
-                        this.props.eventDay,
-                        this.props.headliner,
-                        this.props.secondArtist,
-                        this.props.venueName,
-                        this.props.venueCity,
-                        this.props.venueState,
-                        this.props.venueCountry
-                        )}>Favorite event</button>
+                    <button>Favorite event</button>
                     
                 </div>
         );

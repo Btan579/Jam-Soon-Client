@@ -24,15 +24,15 @@ export const addFavoriteArtist = (name, playlist) => ({
 });
 
 export const ADD_FAVORITE_EVENT = 'ADD_FAVORITE_EVENT';
-export const addFavoriteEvent = (favEventName, favDate, favHeadliner, favSupportingArtists, favVenue, favCity, favState, favZip, favCountry) => ({
+export const addFavoriteEvent = (eventName, date, headliner, supportingArtistis, venue, city, state, zip, country) => ({
     type: ADD_FAVORITE_EVENT,
-    favEventName,
-    favDate,
-    favHeadliner,
-    favSupportingArtists,
-    favVenue,
-    favCity,
-    favState,
-    favZip,
-    favCountry
+    eventName,
+    date,
+    headliner,
+    supportingArtistis,
+    venue,
+    city,
+    state,
+    zip,
+    country
 });

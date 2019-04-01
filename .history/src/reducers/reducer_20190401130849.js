@@ -2,8 +2,7 @@ import {
     SET_SEARCH_CITY,
     SET_SEARCH_DATE,
     SET_API_DATE,
-    ADD_FAVORITE_ARTIST,
-    ADD_FAVORITE_EVENT
+    ADD_FAVORITE_ARTIST
 } from '../actions';
 
 const initialState = {
@@ -11,8 +10,8 @@ const initialState = {
         username: "btan579"
     },
     currentSearchCity: "Boston",
-    currentSearchDate: "10/31/2019",
-    currentApiDate: "2020/10/31",
+    currentSearchDate: "4/19/2019",
+    currentApiDate: "2019/4/19",
     events: [
         {
             eventDay: "October 31st 2020",
@@ -114,7 +113,7 @@ export const reducer = (state = initialState, action) => {
             favoriteEvents: [...state.favoriteEvents, {
                  favEventName: action.favEventName,
                  favDate: action.favDate,
-                 favHeadliner: action.favHeadliner,
+                 favHeadliner: action. favHeadliner,
                  favSupportingArtists: action.favSupportingArtists,
                  favVenue: action.favVenue,
                  favCity: action.favCity,

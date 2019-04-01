@@ -21,14 +21,14 @@ export class FavoritesPage extends React.Component {
             <FavoriteEvents
                 key={index}
                 favEventName={favoriteEvent.favEventName}
-                favDate={favoriteEvent.favDate}
-                favHeadliner={favoriteEvent.favHeadliner}
-                favSupportingArtists={favoriteEvent.favSupportingArtists}
-                favVenue={favoriteEvent.favVenue}
-                favCity={favoriteEvent.favCity}
-                favState={favoriteEvent.favState}
-                favZip={favoriteEvent.favZip}
-                favCountry={favoriteEvent.favCountry}
+                date={favoriteEvent.favDate}
+                headliner={favoriteEvent.favHeadliner}
+                supportingArtists={favoriteEvent.favSupportingArtists}
+                venue={favoriteEvent.favVenue}
+                city={favoriteEvent.favCity}
+                state={favoriteEvent.favState}
+                zip={favoriteEvent.favZip}
+                country={favoriteEvent.favCountry}
             />
         ));
 

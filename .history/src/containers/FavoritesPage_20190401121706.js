@@ -20,15 +20,15 @@ export class FavoritesPage extends React.Component {
         const favoriteEvents = this.props.favoriteEvents.map((favoriteEvent, index) => (
             <FavoriteEvents
                 key={index}
-                favEventName={favoriteEvent.favEventName}
-                favDate={favoriteEvent.favDate}
-                favHeadliner={favoriteEvent.favHeadliner}
-                favSupportingArtists={favoriteEvent.favSupportingArtists}
-                favVenue={favoriteEvent.favVenue}
-                favCity={favoriteEvent.favCity}
-                favState={favoriteEvent.favState}
-                favZip={favoriteEvent.favZip}
-                favCountry={favoriteEvent.favCountry}
+                eventName={favoriteEvent.FavEventName}
+                date={favoriteEvent.FavDate}
+                headliner={favoriteEvent.FavHeadliner}
+                supportingArtists={favoriteEvent.FavSupportingArtists}
+                venue={favoriteEvent.FavVenue}
+                city={favoriteEvent.FavCity}
+                state={favoriteEvent.FavState}
+                zip={favoriteEvent.FavZip}
+                country={favoriteEvent.FavCountry}
             />
         ));
 
