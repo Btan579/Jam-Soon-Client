@@ -1,15 +1,44 @@
 import React from 'react';
 import DatePicker from 'react-datepicker';
-import StateDropDown from "../components/StateDropDown";
 import {connect} from 'react-redux';
 import '../styles/CalendarSearchSection.css';
 import "react-datepicker/dist/react-datepicker.css";
-import {setSearchCity, setSearchDate, setApiDate, setMetroSearch} from '../actions';
-
+import {setSearchCity, setSearchDate, setApiDate} from '../actions';
+import { CountryDropdown, RegionDropdown } from 'react-country-region-selector';
 import moment from 'moment';
 
 export class CalendarSearchSection extends React.Component {
-  
+     constructor(props) {
+         super(props);
+         this.state = {
+             country: '',
+             region: ' ',
+             disabled: true
+         };
+     }
+
+    selectCountry(val) {
+         if (val === 'US') {
+             this.setState({
+                 country: val,
+                 disabled: false
+             });
+         } else {
+             this.setState({
+                 country: val
+             });
+         }
+        
+    }
+        
+
+
+    selectRegion(val) {
+        this.setState({
+            region: val
+        });
+    }
+
     onSubmit(event) {
         event.preventDefault();
         const text = this.textInput.value.trim();
@@ -26,11 +55,24 @@ export class CalendarSearchSection extends React.Component {
     }
 
     render() {
+        const { country, region, disabled } = this.state;
         return (
             <div>
                  <form className='event-search-input' onSubmit={(e) => this.onSubmit(e)}>
                 <label htmlFor="metro-search">Search</label>
-                <StateDropDown />
+                <CountryDropdown
+                    value={country}
+                     valueType="short"
+                    onChange={(val) => this.selectCountry(val)} 
+                    priorityOptions={["US", "CA", "GB"]} />
+                <RegionDropdown
+                country={country}
+                value={region}
+                countryValueType="short"
+                valueType="short"
+                onChange={(val) => this.selectRegion(val)} 
+                disabled={disabled}
+                />
                 <input placeholder='Find concerts for any city' type="text" name='metro-search' id='metro-search' 
                             ref={input => this.textInput = input}/>
                 <button>Set area</button>
@@ -45,7 +87,5 @@ export class CalendarSearchSection extends React.Component {
         );
     }
 }
-const mapStateToProps = state => ({
-    dropDownStates: state.dropDownStates,
-});
-export default connect(mapStateToProps)(CalendarSearchSection);
+
+export default connect()(CalendarSearchSection);

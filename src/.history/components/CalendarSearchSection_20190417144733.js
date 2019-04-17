@@ -26,11 +26,18 @@ export class CalendarSearchSection extends React.Component {
     }
 
     render() {
+       const dropDownStates = this.props.dropDownStates.map((dropDownState, index) => (
+            <StateDropDown
+            key={index}
+            stateShortCode={dropDownState.stateShortCode}
+            stateName={dropDownState.stateName}
+            />
+        ));
         return (
             <div>
                  <form className='event-search-input' onSubmit={(e) => this.onSubmit(e)}>
                 <label htmlFor="metro-search">Search</label>
-                <StateDropDown />
+                {dropDownStates}
                 <input placeholder='Find concerts for any city' type="text" name='metro-search' id='metro-search' 
                             ref={input => this.textInput = input}/>
                 <button>Set area</button>

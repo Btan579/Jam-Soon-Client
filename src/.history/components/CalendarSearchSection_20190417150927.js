@@ -26,6 +26,13 @@ export class CalendarSearchSection extends React.Component {
     }
 
     render() {
+    //    const dropDownStates = this.props.dropDownStates.map((dropDownState, index) => (
+    //         <StateDropDown
+    //         key={index}
+    //         stateShortCode={dropDownState.stateShortCode}
+    //         stateName={dropDownState.stateName}
+    //         />
+    //     ));
         return (
             <div>
                  <form className='event-search-input' onSubmit={(e) => this.onSubmit(e)}>

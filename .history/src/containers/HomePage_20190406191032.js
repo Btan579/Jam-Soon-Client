@@ -7,7 +7,7 @@ import CalendarSearchSection from "../components/CalendarSearchSection";
 import EventsSection from "../components/EventsSection";
 import CurrentSearchCity from "../components/CurrentSearchCity";
 import CurrentSearchDate from "../components/CurrentSearchDate";
-
+import { CountryDropdown, RegionDropdown, CountryRegionData } from 'react-country-region-selector';
 
 import '../styles/HomePage.css';
 
