@@ -13,13 +13,8 @@ export class CalendarSearchSection extends React.Component {
     onSubmit(event) {
         event.preventDefault();
         const text = this.textInput.value.trim();
-        const stateName = this.stateVal.value;
-        const countryCodeVal = 'US';
+        const stateName = this.stateNameInput;
         this.props.dispatch(setSearchCity(text));
-
-        this.props.dispatch(setMetroSearch(
-            { countryCodeVal, stateName, stateName, }
-        ));
         this.textInput.value = '';
         console.log(stateName);
          console.log(text);
@@ -34,28 +29,22 @@ export class CalendarSearchSection extends React.Component {
     }
 
     render() {
-        const dropDownStates = this.props.dropDownStates.map((dropDownState, index) => (
-            <option key={index}
-                value={dropDownState.stateShortCode}
-            >
-                {dropDownState.stateName}
-            </option>
-        ));
         return (
             <div>
-                <form className='event-search-input' onSubmit={(e) => this.onSubmit(e)}>
-                    <label htmlFor="metro-search">Search</label>
-                    <select className="stateDropD" 
-                        ref={selected => this.stateVal = selected}>
-                        {dropDownStates}
-                    </select>
+                 <form className='event-search-input' onSubmit={(e) => this.onSubmit(e)}>
+                <label htmlFor="metro-search">Search</label>
+
+                <StateDropDown 
+                ref={selected => this.stateNameInput = selected}
+                />
+
                 <input placeholder='Find concerts for any city' type="text" name='metro-search' id='metro-search' 
                             ref={input => this.textInput = input}/>
                 <button>Set area</button>
                 </form>
                 
                 <DatePicker 
-                    // selected={this.props.date}
+                    selected={this.props.date}
                     onSelect={(date) => this.onSelect(date)}
 
                 />     

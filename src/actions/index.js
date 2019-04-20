@@ -38,7 +38,7 @@ export const addFavoriteEvent = (favEventName, favDate, favHeadliner, favSupport
 });
 
 export const SET_METRO_SEARCH = 'SET_METRO_SEARCH';
-export const setMetroSearch = (countryCode, usState, cityName) => ({
+export const setMetroSearch = (countryCode, stateName, cityName) => ({
     type: SET_METRO_SEARCH,
-    countryCode, usState, cityName
+    countryCode, stateName, cityName
 });

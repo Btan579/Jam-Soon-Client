@@ -14,7 +14,6 @@ const initialState = {
     currentSearchCity: "Boston",
     currentSearchDate: "10/31/2019",
     currentApiDate: "2020/10/31",
-    
     metroSearchTerms: {
         countryCode: "US",
         stateName: "",

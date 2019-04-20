@@ -14,10 +14,9 @@ const initialState = {
     currentSearchCity: "Boston",
     currentSearchDate: "10/31/2019",
     currentApiDate: "2020/10/31",
-    
     metroSearchTerms: {
-        countryCode: "US",
-        stateName: "",
+        countryCode: "",
+        usState: "",
         cityName: ""
     },
    
@@ -342,7 +341,7 @@ export const reducer = (state = initialState, action) => {
         return Object.assign({}, state, {
             metroSearchTerms: {
                 countryCode: action.countryCode,
-                stateName: action.stateName,
+                usState: action.usState,
                 cityName: action.cityName
             }
         });

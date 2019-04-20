@@ -14,12 +14,7 @@ export class CalendarSearchSection extends React.Component {
         event.preventDefault();
         const text = this.textInput.value.trim();
         const stateName = this.stateVal.value;
-        const countryCodeVal = 'US';
         this.props.dispatch(setSearchCity(text));
-
-        this.props.dispatch(setMetroSearch(
-            { countryCodeVal, stateName, stateName, }
-        ));
         this.textInput.value = '';
         console.log(stateName);
          console.log(text);
@@ -43,12 +38,12 @@ export class CalendarSearchSection extends React.Component {
         ));
         return (
             <div>
-                <form className='event-search-input' onSubmit={(e) => this.onSubmit(e)}>
-                    <label htmlFor="metro-search">Search</label>
-                    <select className="stateDropD" 
-                        ref={selected => this.stateVal = selected}>
-                        {dropDownStates}
-                    </select>
+                 <form className='event-search-input' onSubmit={(e) => this.onSubmit(e)}>
+                <label htmlFor="metro-search">Search</label>
+                    <select className="stateDropD" ref={ham => this.stateVal = ham}>
+            {dropDownStates}
+                        
+            </select>
                 <input placeholder='Find concerts for any city' type="text" name='metro-search' id='metro-search' 
                             ref={input => this.textInput = input}/>
                 <button>Set area</button>

@@ -14,12 +14,8 @@ export class CalendarSearchSection extends React.Component {
         event.preventDefault();
         const text = this.textInput.value.trim();
         const stateName = this.stateVal.value;
-        const countryCodeVal = 'US';
         this.props.dispatch(setSearchCity(text));
-
-        this.props.dispatch(setMetroSearch(
-            { countryCodeVal, stateName, stateName, }
-        ));
+        this.props.dispatch(setMetroSearch(text));
         this.textInput.value = '';
         console.log(stateName);
          console.log(text);
