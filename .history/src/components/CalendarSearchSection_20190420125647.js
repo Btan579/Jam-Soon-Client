@@ -1,37 +1,40 @@
 import React from 'react';
 import DatePicker from 'react-datepicker';
-import { dropDownStatesData } from '../components/ComponentData';
+// import StateDropDown from "../components/StateDropDown";
 import {connect} from 'react-redux';
 import '../styles/CalendarSearchSection.css';
 import "react-datepicker/dist/react-datepicker.css";
-import {setSearchCity, setSearchDate, setApiDate} from '../actions';
+import {setSearchCity, setSearchDate, setApiDate, setMetroSearch} from '../actions';
 
 import moment from 'moment';
 
 export class CalendarSearchSection extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            startDate: new Date()
-        };
-        this.onSelect = this.onSelect.bind(this);
-    }
+  
     onSubmit(event) {
         event.preventDefault();
         const text = this.textInput.value.trim();
+        const stateName = this.stateVal.value;
+        // const countryCodeVal = 'US';
         this.props.dispatch(setSearchCity(text));
+
+        // this.props.dispatch(setMetroSearch(
+        //     { countryCodeVal, stateName, stateName, }
+        // ));
         this.textInput.value = '';
+        console.log(stateName);
+         console.log(text);
         }
 
     onSelect(date) {
         const apiDate = moment(date).format('YYYY-MM-DD');
         this.props.dispatch(setApiDate(apiDate.toString()));
+
         const clientDate = moment(date).format('MMMM Do YYYY');
         this.props.dispatch(setSearchDate(clientDate.toString()));
     }
 
     render() {
-        const dropDownStates = dropDownStatesData.map((dropDownState, index) => (
+        const dropDownStates = this.props.dropDownStates.map((dropDownState, index) => (
             <option key={index}
                 value={dropDownState.stateShortCode}
             >
@@ -52,11 +55,15 @@ export class CalendarSearchSection extends React.Component {
                 </form>
                 
                 <DatePicker 
-                    selected={this.state.startDate}
+                    // selected={this.props.date}
                     onSelect={(date) => this.onSelect(date)}
+
                 />     
             </div>
         );
     }
 }
-export default connect()(CalendarSearchSection);
+const mapStateToProps = state => ({
+    dropDownStates: state.dropDownStates,
+});
+export default connect(mapStateToProps)(CalendarSearchSection);

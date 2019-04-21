@@ -8,6 +8,7 @@ export default function StateDropDown(props) {
             {props.stateName}
         </div>
     );
+    
 };
 StateDropDown.defaultProps = {
     stateShortCode: '',

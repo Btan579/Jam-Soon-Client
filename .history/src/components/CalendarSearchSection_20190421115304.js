@@ -1,5 +1,6 @@
 import React from 'react';
 import DatePicker from 'react-datepicker';
+
 import { dropDownStatesData } from '../components/ComponentData';
 import {connect} from 'react-redux';
 import '../styles/CalendarSearchSection.css';

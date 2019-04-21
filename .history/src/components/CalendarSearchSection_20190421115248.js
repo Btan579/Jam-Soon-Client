@@ -1,10 +1,11 @@
 import React from 'react';
 import DatePicker from 'react-datepicker';
+
 import { dropDownStatesData } from '../components/ComponentData';
 import {connect} from 'react-redux';
 import '../styles/CalendarSearchSection.css';
 import "react-datepicker/dist/react-datepicker.css";
-import {setSearchCity, setSearchDate, setApiDate} from '../actions';
+import {setSearchCity, setSearchDate, setApiDate, setMetroSearch} from '../actions';
 
 import moment from 'moment';
 
@@ -19,6 +20,7 @@ export class CalendarSearchSection extends React.Component {
     onSubmit(event) {
         event.preventDefault();
         const text = this.textInput.value.trim();
+        const stateName = this.stateVal.value;
         this.props.dispatch(setSearchCity(text));
         this.textInput.value = '';
         }

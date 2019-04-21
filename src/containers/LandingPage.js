@@ -7,10 +7,11 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import LandingSection from "../components/LandingSection";
 import '../styles/LandingPage.css';
+import { landingSectionsData } from '../components/ComponentData';
 
 export class LandingPage extends React.Component {
     render() {
-        const landingSections = this.props.landingSections.map((section, index) => (
+        const landingSections = landingSectionsData.map((section, index) => (
             <LandingSection 
             key={index}
             heading={section.heading}
