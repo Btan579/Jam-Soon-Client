@@ -75,9 +75,12 @@ export class CalendarSearchSection extends React.Component {
                         <button>Set area</button>
                 </form>
                 <DatePicker 
+
                     selected={this.state.startDate}
                     onSelect={(date) => this.onSelect(date)}
+                    
                     maxDate={addDays(new Date(), 365)}
+                    
                 />     
                 
             </div>

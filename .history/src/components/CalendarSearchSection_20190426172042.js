@@ -19,6 +19,9 @@ export class CalendarSearchSection extends React.Component {
         };
         this.onSelect = this.onSelect.bind(this);
     }
+    addMonths(date) {
+
+    }
     onSubmit(values) {
         // event.preventDefault();
         console.log(values);
@@ -37,6 +40,7 @@ export class CalendarSearchSection extends React.Component {
         const clientDate = moment(date).format('MMMM Do YYYY');
         this.props.dispatch(setSearchDate(clientDate.toString()));
     }
+
     render() {
         const dropDownStates = dropDownStatesData.map((dropDownState, index) => (
             <option key={index}
@@ -45,11 +49,6 @@ export class CalendarSearchSection extends React.Component {
                 {dropDownState.stateName}
             </option>
         ));
-        function addDays(date, days) {
-            var result = new Date(date);
-            result.setDate(result.getDate() + days);
-            return result;
-        }
         return (
             <div>
                 <form  
@@ -77,7 +76,9 @@ export class CalendarSearchSection extends React.Component {
                 <DatePicker 
                     selected={this.state.startDate}
                     onSelect={(date) => this.onSelect(date)}
-                    maxDate={addDays(new Date(), 365)}
+                    minDate={new Date()}
+                    maxDate={(new Date(), 12)}
+                    
                 />     
                 
             </div>
