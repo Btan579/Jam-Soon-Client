@@ -5,7 +5,7 @@ import {
 import rootReducer from "./reducers";
 
 // import reducer from './reducers/reducer';
-
-export default createStore(rootReducer);
+const store = createStore(rootReducer);
+export default store;
 
 // reducer

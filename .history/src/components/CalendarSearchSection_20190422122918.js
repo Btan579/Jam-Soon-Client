@@ -2,8 +2,6 @@ import React from 'react';
 import DatePicker from 'react-datepicker';
 import { dropDownStatesData } from '../components/ComponentData';
 import { reduxForm, Field } from 'redux-form';
-import Input from './input';
-import { required, nonEmpty, validCity } from '../validators';
 // import {connect} from 'react-redux';
 import '../styles/CalendarSearchSection.css';
 import "react-datepicker/dist/react-datepicker.css";
@@ -22,9 +20,9 @@ export class CalendarSearchSection extends React.Component {
     onSubmit(values) {
         // event.preventDefault();
         console.log(values);
-        const text = values.citySearchInput;
+        const text = this.values.trim();
         console.log(text);
-        this.props.dispatch(setSearchCity(text));
+        // this.props.dispatch(setSearchCity(text));
         // this.textInput.value = '';
         // const text = this.textInput.value.trim();
         // this.props.dispatch(setSearchCity(text));
@@ -58,14 +56,7 @@ export class CalendarSearchSection extends React.Component {
                             ref={selected => this.stateVal = selected}>
                         {dropDownStates}
                         </select>
-                    <Field 
-                        name="citySearchInput" 
-                        id="citySearchInput" 
-                        type="text" 
-                        component={Input} 
-                        placeholder='Find concerts for any city'
-                        validate={[required, nonEmpty, validCity]}
-                        />
+                    <Field name="citySearchInput" id="citySearchInput" type="text" component="input" placeholder='Find concerts for any city'/>
                         {/* <input placeholder='Find concerts for any city' type="text" name='metro-search' id='metro-search' 
                             ref={input => this.textInput = input}/> */}
                         <button>Set area</button>

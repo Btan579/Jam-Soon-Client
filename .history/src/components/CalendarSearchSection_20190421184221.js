@@ -2,9 +2,7 @@ import React from 'react';
 import DatePicker from 'react-datepicker';
 import { dropDownStatesData } from '../components/ComponentData';
 import { reduxForm, Field } from 'redux-form';
-import Input from './input';
-import { required, nonEmpty, validCity } from '../validators';
-// import {connect} from 'react-redux';
+import {connect} from 'react-redux';
 import '../styles/CalendarSearchSection.css';
 import "react-datepicker/dist/react-datepicker.css";
 import {setSearchCity, setSearchDate, setApiDate} from '../actions';
@@ -19,16 +17,11 @@ export class CalendarSearchSection extends React.Component {
         };
         this.onSelect = this.onSelect.bind(this);
     }
-    onSubmit(values) {
-        // event.preventDefault();
-        console.log(values);
-        const text = values.citySearchInput;
-        console.log(text);
+    onSubmit(event) {
+        event.preventDefault();
+        const text = this.textInput.value.trim();
         this.props.dispatch(setSearchCity(text));
-        // this.textInput.value = '';
-        // const text = this.textInput.value.trim();
-        // this.props.dispatch(setSearchCity(text));
-        // this.textInput.value = '';
+        this.textInput.value = '';
         }
 
     onSelect(date) {
@@ -48,26 +41,15 @@ export class CalendarSearchSection extends React.Component {
         ));
         return (
             <div>
-                <form  
-                // onSubmit={(e) => this.onSubmit(e)}>
-                    onSubmit={this.props.handleSubmit(values =>
-                        this.onSubmit(values)
-                    )}>
+                <form className='event-search-input' onSubmit={(e) => this.onSubmit(e)}>
                     <label htmlFor="metro-search">Search</label>
                         <select className="stateDropD" 
                             ref={selected => this.stateVal = selected}>
                         {dropDownStates}
                         </select>
-                    <Field 
-                        name="citySearchInput" 
-                        id="citySearchInput" 
-                        type="text" 
-                        component={Input} 
-                        placeholder='Find concerts for any city'
-                        validate={[required, nonEmpty, validCity]}
-                        />
-                        {/* <input placeholder='Find concerts for any city' type="text" name='metro-search' id='metro-search' 
-                            ref={input => this.textInput = input}/> */}
+                        <Field name="citySearchInput" id="citySearchInput" type="text" component="input"/>
+                        <input placeholder='Find concerts for any city' type="text" name='metro-search' id='metro-search' 
+                            ref={input => this.textInput = input}/>
                         <button>Set area</button>
                 </form>
                 <DatePicker 
@@ -78,7 +60,4 @@ export class CalendarSearchSection extends React.Component {
         );
     }
 }
-// export default connect()(CalendarSearchSection);
-export default reduxForm({
-    form: 'city'
-})(CalendarSearchSection);
+export default connect()(CalendarSearchSection);

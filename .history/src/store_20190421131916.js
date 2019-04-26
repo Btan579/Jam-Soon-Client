@@ -1,5 +1,5 @@
 import {
-    createStore
+    createStore, combineReducers
 } from 'redux';
 
 import rootReducer from "./reducers";

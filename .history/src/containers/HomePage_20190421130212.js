@@ -14,24 +14,24 @@ import '../styles/HomePage.css';
 export class HomePage extends React.Component {
    
     render() {
-         const events = this.props.events.map((event, index) => (
+        const displayEvents = this.props.displayEvents.map((displayEvent, index) => (
             <EventsSection 
             key={index}
-            eventName={event.eventName}
-            headliner={event.headliner}
-            headlinerPlaylist={event.headlinerPlaylist}
-            secondArtist={event.secondArtist}
-            secondArtistPlaylist={event.secondArtistPlaylist}
-            eventDay={event.eventDay}
-            venueName={event.venueName}
-            venueAddress={event.venueAddress}
-            venueCity={event.venueCity}
-            venueZip={event.venueZip}
-            venueState={event.venueState}
-            venueCountry={event.venueCountry}
-            venueWesbite={event.venueWesbite}
-            venuePhone={event.venuePhone}
-            venueDescription={event.venueDescription}
+            eventName={displayEvent.eventName}
+            headliner={displayEvent.headliner}
+            headlinerPlaylist={displayEvent.headlinerPlaylist}
+            secondArtist={displayEvent.secondArtist}
+            secondArtistPlaylist={displayEvent.secondArtistPlaylist}
+            eventDay={displayEvent.eventDay}
+            venueName={displayEvent.venueName}
+            venueAddress={displayEvent.venueAddress}
+            venueCity={displayEvent.venueCity}
+            venueZip={displayEvent.venueZip}
+            venueState={displayEvent.venueState}
+            venueCountry={displayEvent.venueCountry}
+            venueWesbite={displayEvent.venueWesbite}
+            venuePhone={displayEvent.venuePhone}
+            venueDescription={displayEvent.venueDescription}
             />
         ));
             
@@ -44,7 +44,7 @@ export class HomePage extends React.Component {
                 <CalendarSearchSection 
                 />
                 <CurrentSearchDate />
-                {events}
+                {displayEvents}
                 <Footer />
             </div>
         );
@@ -52,7 +52,7 @@ export class HomePage extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    events: state.eventsState.events,
+    displayEvents: state.displayEvents,
 });
 
 export default connect(mapStateToProps)(HomePage);

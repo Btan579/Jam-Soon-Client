@@ -52,7 +52,7 @@ export class HomePage extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    events: state.eventsState.events,
+    events: state.events,
 });
 
 export default connect(mapStateToProps)(HomePage);
