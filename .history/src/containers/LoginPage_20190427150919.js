@@ -19,10 +19,5 @@ export function LoginPage(props) {
                 <Footer />
             </section>
         );
+    
 }
-
-const mapStateToProps = state => ({
-    loggedIn: state.auth.currentUser !== null
-});
-
-export default connect(mapStateToProps)(LoginPage);

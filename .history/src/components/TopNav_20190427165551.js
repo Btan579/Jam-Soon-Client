@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { clearAuth } from '../actions/auth';
 import { clearAuthToken } from '../local-storage';
-
+// import CurrentUserInfo from './CurrentUserInfo';
 
 export class TopNav extends React.Component {
     logOut() {
@@ -13,11 +13,14 @@ export class TopNav extends React.Component {
     }
 
     render() {
+        // Only render the log out button if we are logged in
         let logOutButton;
+
         if (this.props.loggedIn) {
             logOutButton = (
                 <button onClick={() => this.logOut()}>Log out</button>
             );
+           
         } 
       let userInfo;
       if (this.props.username !== ""){

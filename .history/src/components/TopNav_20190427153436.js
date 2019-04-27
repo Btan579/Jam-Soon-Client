@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { clearAuth } from '../actions/auth';
 import { clearAuthToken } from '../local-storage';
-
+// import CurrentUserInfo from './CurrentUserInfo';
 
 export class TopNav extends React.Component {
     logOut() {
@@ -13,20 +13,19 @@ export class TopNav extends React.Component {
     }
 
     render() {
+        // Only render the log out button if we are logged in
         let logOutButton;
+        let userInfo;
         if (this.props.loggedIn) {
             logOutButton = (
                 <button onClick={() => this.logOut()}>Log out</button>
             );
-        } 
-      let userInfo;
-      if (this.props.username !== ""){
-        userInfo = (
-          <div className="current-username">
-            Welcome!: {this.props.username}
-          </div>
-        );
-      }
+            userInfo = ( 
+               <div className="current-username">
+                Welcome!: {this.props.currentUser}
+                </div>
+            );
+        }
         return (
           <nav role="navigation">
             <Link to="/home"><span>Home</span></Link>
@@ -41,8 +40,7 @@ export class TopNav extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    loggedIn: state.auth.currentUser !== null,
-    username: state.auth.currentUserName
+  loggedIn: state.auth.currentUser !== null
 });
 
 export default connect(mapStateToProps)(TopNav);

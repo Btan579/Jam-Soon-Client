@@ -9,7 +9,7 @@ import {
 const initialState = {
     authToken: null, // authToken !== null does not mean it has been validated
     currentUser: null,
-    currentUserName: '',
+    currentUserName: null,
     loading: false,
     error: null
 };
@@ -23,7 +23,7 @@ const authReducer = (state = initialState, action) => {
         return Object.assign({}, state, {
             authToken: null,
             currentUser: null,
-            currentUserName: ''
+            currentUserName: null
         });
     } else if (action.type === AUTH_REQUEST) {
         return Object.assign({}, state, {

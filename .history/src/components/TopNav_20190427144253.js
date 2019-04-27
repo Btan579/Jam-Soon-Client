@@ -4,29 +4,35 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { clearAuth } from '../actions/auth';
 import { clearAuthToken } from '../local-storage';
-
+// import CurrentUserInfo from './CurrentUserInfo';
+import requiresLogin from './requires-login';
+import { fetchProtectedData } from '../actions/protected-data';
 
 export class TopNav extends React.Component {
+    componentDidMount() {
+        this.props.dispatch(fetchProtectedData());
+    }
     logOut() {
         this.props.dispatch(clearAuth());
         clearAuthToken();
     }
 
     render() {
+        // Only render the log out button if we are logged in
         let logOutButton;
+        let userInfo;
         if (this.props.loggedIn) {
             logOutButton = (
                 <button onClick={() => this.logOut()}>Log out</button>
             );
-        } 
-      let userInfo;
-      if (this.props.username !== ""){
-        userInfo = (
-          <div className="current-username">
-            Welcome!: {this.props.username}
-          </div>
-        );
-      }
+          userInfo = (
+            <div className="user-info">
+              <div className="current-username">
+                Welcome!: {this.props.username}
+              </div>
+            </div>
+          );
+        }
         return (
           <nav role="navigation">
             <Link to="/home"><span>Home</span></Link>
@@ -41,8 +47,9 @@ export class TopNav extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    loggedIn: state.auth.currentUser !== null,
-    username: state.auth.currentUserName
+  username: state.auth.currentUser.username,
+  protectedData: state.protectedData.data,
+  loggedIn: state.auth.currentUser !== null
 });
-
-export default connect(mapStateToProps)(TopNav);
+export default requiresLogin()(connect(mapStateToProps)(TopNav));
+// export default connect(mapStateToProps)(TopNav);

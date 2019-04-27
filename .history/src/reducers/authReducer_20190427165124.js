@@ -22,8 +22,7 @@ const authReducer = (state = initialState, action) => {
     } else if (action.type === CLEAR_AUTH) {
         return Object.assign({}, state, {
             authToken: null,
-            currentUser: null,
-            currentUserName: ''
+            currentUser: null
         });
     } else if (action.type === AUTH_REQUEST) {
         return Object.assign({}, state, {

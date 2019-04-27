@@ -22,8 +22,7 @@ const authReducer = (state = initialState, action) => {
     } else if (action.type === CLEAR_AUTH) {
         return Object.assign({}, state, {
             authToken: null,
-            currentUser: null,
-            currentUserName: ''
+            currentUser: null
         });
     } else if (action.type === AUTH_REQUEST) {
         return Object.assign({}, state, {
@@ -34,7 +33,7 @@ const authReducer = (state = initialState, action) => {
         return Object.assign({}, state, {
             loading: false,
             currentUser: action.currentUser,
-            currentUserName: action.currentUser.username
+            currentUserName: action.currentUserName
         });
     } else if (action.type === AUTH_ERROR) {
         return Object.assign({}, state, {
