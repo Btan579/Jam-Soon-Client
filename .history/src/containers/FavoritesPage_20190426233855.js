@@ -9,9 +9,9 @@ import '../styles/FavoritesPage.css';
 
 export class FavoritesPage extends React.Component {
     render() {
-        // if (props.loggedIn) {
-        //     return <Redirect to="/" />;
-        // }
+        if (props.loggedIn) {
+            return <Redirect to="/home" />;
+        }
         const favoriteArtists = this.props.favoriteArtists.map((favoriteArtist, index) => (
             <FavoriteArtists
                 key={index}

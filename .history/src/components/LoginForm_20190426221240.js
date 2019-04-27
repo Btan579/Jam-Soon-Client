@@ -5,7 +5,7 @@ import { login } from '../actions/auth';
 import { required, nonEmpty } from '../validators';
 import '../styles/LoginForm.css';
 
-export class LoginForm extends React.Component {
+export class Login extends React.Component {
     onSubmit(values) {
         return this.props.dispatch(login(values.username, values.password));
     }

@@ -9,10 +9,10 @@ import '../styles/RegisterForm.css';
 const passwordLength = length({ min: 10, max: 72 });
 const matchesPassword = matches('password');
 
-export class RegisterForm extends React.Component {
+export default class RegisterForm extends React.Component {
     onSubmit(values) {
-        const { username, password } = values;
-        const user = { username, password };
+        const { username, password, firstName, lastName } = values;
+        const user = { username, password, firstName, lastName };
         return this.props
             .dispatch(registerUser(user))
             .then(() => this.props.dispatch(login(username, password)));
@@ -62,4 +62,4 @@ export default reduxForm({
     form: 'registration',
     onSubmitFail: (errors, dispatch) =>
         dispatch(focus('registration', Object.keys(errors)[0]))
-})(RegisterForm);
+})(RegistrationForm);

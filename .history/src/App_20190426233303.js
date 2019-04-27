@@ -9,7 +9,7 @@ import HomePage from "./containers/HomePage";
 import LoginPage from "./containers/LoginPage";
 import RegisterPage from "./containers/RegisterPage";
 import FavoritesPage from "./containers/FavoritesPage";
-import { refreshAuthToken } from './actions/auth';
+import { refreshAuthToken } from '../actions/auth';
 import './App.css';
 
 

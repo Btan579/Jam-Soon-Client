@@ -3,7 +3,7 @@ import DatePicker from 'react-datepicker';
 import { dropDownStatesData } from '../components/ComponentData';
 import { reduxForm, Field } from 'redux-form';
 import Input from './input';
-import { required, nonEmpty, validCity, isTrimmed } from '../validators';
+import { required, nonEmpty, validCity } from '../validators';
 // import {connect} from 'react-redux';
 import '../styles/CalendarSearchSection.css';
 import "react-datepicker/dist/react-datepicker.css";
@@ -66,7 +66,7 @@ export class CalendarSearchSection extends React.Component {
                         type="text" 
                         component={Input} 
                         placeholder='Find concerts for any city'
-                        validate={[required, nonEmpty, validCity, isTrimmed]}
+                        validate={[required, nonEmpty, validCity]}
                         />
                         {/* <input placeholder='Find concerts for any city' type="text" name='metro-search' id='metro-search' 
                             ref={input => this.textInput = input}/> */}
