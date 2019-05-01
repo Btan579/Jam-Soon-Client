@@ -5,13 +5,14 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import CalendarSearchSection from "../components/CalendarSearchSection";
 import EventsSection from "../components/EventsSection";
-import DatePicker from 'react-date-picker';
+import CurrentSearchCity from "../components/CurrentSearchCity";
+import CurrentSearchDate from "../components/CurrentSearchDate";
+
 
 import '../styles/HomePage.css';
 
 export class HomePage extends React.Component {
    
-    
     render() {
          const events = this.props.events.map((event, index) => (
             <EventsSection 
@@ -21,23 +22,27 @@ export class HomePage extends React.Component {
             headlinerPlaylist={event.headlinerPlaylist}
             secondArtist={event.secondArtist}
             secondArtistPlaylist={event.secondArtistPlaylist}
+            eventDay={event.eventDay}
             venueName={event.venueName}
             venueAddress={event.venueAddress}
             venueCity={event.venueCity}
             venueZip={event.venueZip}
             venueState={event.venueState}
-            venueCountry={event.venueCountry}
             venueWesbite={event.venueWesbite}
             venuePhone={event.venuePhone}
             venueDescription={event.venueDescription}
             />
         ));
-
+            
         return (
             <div className="home-page">
-                <TopNav />
+                <TopNav username="username"/>
                 <Header />
-                <CalendarSearchSection />
+                <h3>Find some shows</h3>
+                <CurrentSearchCity />
+                <CalendarSearchSection 
+                />
+                <CurrentSearchDate />
                 {events}
                 <Footer />
             </div>
@@ -46,7 +51,7 @@ export class HomePage extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    events: state.events
+    events: state.eventsState.events,
 });
 
 export default connect(mapStateToProps)(HomePage);

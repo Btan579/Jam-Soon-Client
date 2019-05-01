@@ -106,7 +106,8 @@ const eventsReducer = (state = initialState, action) => {
                  favVenue: action.favVenue,
                  favCity: action.favCity,
                  favState: action.favState,
-                 favZip: action.favZip
+                 favZip: action.favZip,
+                 favCountry: action.favCountry
             }]
         });
     }

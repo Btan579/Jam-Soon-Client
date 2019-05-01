@@ -56,7 +56,8 @@ const initialState = {
             favVenue: "Madison Square Garden",
             favCity: "New York",
             favState: "New York",
-            favZip: "08181"
+            favZip: "08181",
+            favCountry: "USA"
         },
         {
             favEventName: "NYE Times Square",
@@ -66,7 +67,8 @@ const initialState = {
             favVenue: "Madison Square Garden",
             favCity: "New York",
             favState: "New York",
-            favZip: "08181"
+            favZip: "08181",
+            favCountry: "USA"
         }
     ]
 
@@ -106,7 +108,8 @@ const eventsReducer = (state = initialState, action) => {
                  favVenue: action.favVenue,
                  favCity: action.favCity,
                  favState: action.favState,
-                 favZip: action.favZip
+                 favZip: action.favZip,
+                 favCountry: action.favCountry
             }]
         });
     }

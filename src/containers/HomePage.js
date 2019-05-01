@@ -28,7 +28,6 @@ export class HomePage extends React.Component {
             venueCity={event.venueCity}
             venueZip={event.venueZip}
             venueState={event.venueState}
-            venueCountry={event.venueCountry}
             venueWesbite={event.venueWesbite}
             venuePhone={event.venuePhone}
             venueDescription={event.venueDescription}
