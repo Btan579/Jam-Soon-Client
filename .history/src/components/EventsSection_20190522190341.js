@@ -108,7 +108,20 @@ export class EventsSection extends React.Component {
             >
                 <h4>{this.props.eventName}</h4>
                     <div className="performers-section">
+   
                     {perfs}
+                    {/* {console.log(performers.map(function (performer) { return performer.event_id === this.props.event_id})} */}
+                        {/* {this.props.performingArtists.map((performer, index) => (
+                                <div key={index} className="performer">
+                                    <h5>{performer.artistName}</h5>
+                                    <p>{performer.artist_id}</p>
+                                    <p>{performer.billIndex}</p>
+                                    <p>{performer.billSlot}</p>
+                                    <a target='_blank' href={`https://www.youtube.com/playlist?list=${performer.playlist_id}`}><img classname='vidThumbnail' alt={`${performer.artistName} playlist thumbnail`} src={performer.thumbnail} /></a>
+                                    <button type="button" onClick={() => this.saveArtist(performer)}>Favorite artist</button>
+                                </div>
+                        ))} */}
+
                     </div>
                     <div className="venue-cont">
                         <h4>Venue</h4>

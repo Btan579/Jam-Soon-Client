@@ -18,24 +18,23 @@ export default class PerformerSection extends React.Component {
     render() {
         const opts = {
             playerVars: {
-                autoplay: 0,
+                autoplay: 1,
                 listType: 'playlist',
-                list: `${this.props.playlist_id}`
+                list: `PL${this.props.playlist_id}`
             }
         };
         return (
             <div className="performer-section"
                 data-event_id={this.props.event_id}
             >
-                {console.log(opts.playerVars.list)}
                 <h5>{this.props.artistName}</h5>
                 <p>{this.props.artist_id}</p>
                 <p>{this.props.billIndex}</p>
                 <p>{this.props.billSlot}</p>
-                {/* <a target='_blank' href={`https://www.youtube.com/playlist?list=${this.props.playlist_id}`}><img className='vidThumbnail' alt={`${this.props.artistName} playlist thumbnail`} src={this.props.thumbnail} /></a> */}
+                <a target='_blank' href={`https://www.youtube.com/playlist?list=${this.props.playlist_id}`}><img className='vidThumbnail' alt={`${this.props.artistName} playlist thumbnail`} src={this.props.thumbnail} /></a>
                 <YouTube
                    opts={opts} 
-                   
+                   {console.log(opts.playerVars.list)}
                 />
             </div>
         );
