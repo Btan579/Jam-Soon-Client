@@ -44,7 +44,7 @@ export class FavoritesPage extends React.Component {
                 favVenueLocation={favoriteEvent.favVenueLocation}
                 _id={favoriteEvent._id}
                 currentUser_id={favoriteEvent.currentUser_id}
-                favArtists={favoriteEvent.favArtists}
+                // favArtists={favoriteEvent.favArtists}
             />
         ));
 

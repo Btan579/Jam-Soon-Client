@@ -132,7 +132,7 @@ export const fetchFavoriteArtists = (user_id) => (dispatch, getState) => {
             // console.log(data);
             // console.log(artists);
             let artists = data.favoriteArtists;
-            // console.log(artists);
+            console.log(artists);
             artists.forEach(function (artist)   {
                 let _id = artist._id;
                 let favArtistName = artist.favArtistName;

@@ -25,10 +25,10 @@ export class FavoriteEvents extends React.Component {
     
     render() {
         const favorites = this.props.favoriteEvents.map(event => {
-            return event.favArtists;
+            return event.favArtists[0];
         });
         
-        const favArtistsArr = favorites[0].map((event, index) => (
+        const favArtistsArr = favorites.map((event, index) => (
         
             <FavoriteArtistsSection 
                 key={index}
@@ -51,7 +51,7 @@ export class FavoriteEvents extends React.Component {
                 {/* {console.log(favorites)} */}
                 <h4>{this.props.favEventName}</h4>
                 <h4>{this.props.favDate}</h4>
-                {favArtistsArr}
+                {/* {favArtistsArr} */}
                 <h4>{this.props.favVenue}</h4>
                 <h4>{this.props.favVenueLocation}</h4>
                 <button type="button"

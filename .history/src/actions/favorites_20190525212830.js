@@ -2,11 +2,12 @@ import { API_BASE_URL } from '../config';
 import { normalizeResponseErrors } from './utils';
 
 export const ADD_FAVORITE_EVENT_SUCCESS = 'ADD_FAVORITE_EVENT_SUCCESS';
-export const addFavoriteEventSuccess = (favEventName, favDate, favArtists,  favVenue, favVenueLocation, event_id, user_id, _id) => ({
+export const addFavoriteEventSuccess = (favEventName, favDate, favHeadliner, favSupportingArtists, favVenue, favVenueLocation, event_id, user_id, _id) => ({
     type: ADD_FAVORITE_EVENT_SUCCESS,
     favEventName,
     favDate,
-    favArtists,
+    favHeadliner,
+    favSupportingArtists,
     favVenue,
     favVenueLocation,
     event_id,
@@ -20,8 +21,8 @@ export const addFavoriteEventError = error => ({
     error
 });
 
-export const addFavoriteEvent = (favEventName, favDate, favArtists, favVenue, favVenueLocation, event_id, user_id) => (dispatch, getState) => {
-    // console.log(favEventName, favDate, favArtists, favVenue, favVenueLocation, event_id, user_id);
+export const addFavoriteEvent = (user_id, favEventName, favDate, favHeadliner, favSupportingArtists, favVenue, favVenueLocation, event_id) => (dispatch, getState) => {
+    console.log(favEventName, user_id, favDate, favHeadliner, favSupportingArtists, favVenue, favVenueLocation, event_id);
     const authToken = getState().auth.authToken;
     return fetch(`${API_BASE_URL}/favevents/`, {
         method: 'POST',
@@ -30,7 +31,7 @@ export const addFavoriteEvent = (favEventName, favDate, favArtists, favVenue, fa
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            favEventName, favDate, favArtists, favVenue, favVenueLocation, event_id, user_id
+            favEventName, favDate, favHeadliner, favSupportingArtists, favVenue, favVenueLocation, event_id, user_id
         })
     })
         .then(res => normalizeResponseErrors(res))
@@ -40,12 +41,13 @@ export const addFavoriteEvent = (favEventName, favDate, favArtists, favVenue, fa
             let _id = event._id;
             let favEventName = event.favEventName;
             let favDate = event.favDate;
-            let favArtists = event.favArtists;
+            let favHeadliner = event.favHeadliner;
+            let favSupportingArtists = event.favSupportingArtists;
             let favVenue = event.favVenue;
             let favVenueLocation = event.favVenueLocation;
             let event_id = event.event_id;
             let user_id = event.user_id;
-            dispatch(addFavoriteEventSuccess(_id, favEventName, favDate, favArtists, favVenue, favVenueLocation, event_id, user_id));
+            dispatch(addFavoriteEventSuccess(_id, favEventName, favDate, favHeadliner, favSupportingArtists, favVenue, favVenueLocation, event_id, user_id));
         })
         .catch(err => {
             dispatch(addFavoriteEventError(err));
@@ -118,7 +120,7 @@ export const addFavoriteArtist = (favArtistName, video_id, artist_id, user_id) =
 };
 
 export const fetchFavoriteArtists = (user_id) => (dispatch, getState) => {
-    // console.log(user_id);
+    console.log(user_id);
     const authToken = getState().auth.authToken;
     return fetch(`${API_BASE_URL}/favartists/${user_id}`, {
         method: 'GET',
@@ -129,10 +131,10 @@ export const fetchFavoriteArtists = (user_id) => (dispatch, getState) => {
         .then(res => normalizeResponseErrors(res))
         .then(res => res.json())
         .then((data) => {
-            // console.log(data);
+            console.log(data);
             // console.log(artists);
             let artists = data.favoriteArtists;
-            // console.log(artists);
+            console.log(artists);
             artists.forEach(function (artist)   {
                 let _id = artist._id;
                 let favArtistName = artist.favArtistName;
@@ -177,7 +179,7 @@ export const fetchFavoriteEvents = (user_id) => (dispatch, getState) => {
         .then(res => normalizeResponseErrors(res))
         .then(res => res.json())
         .then((data) => {
-            // console.log(data);
+            console.log(data);
             // console.log(artists);
             let events = data.favoriteEvents;
             // console.log(events);

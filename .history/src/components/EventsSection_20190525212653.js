@@ -57,7 +57,7 @@ export class EventsSection extends React.Component {
            console.log(favEventName, favDate, favArtists, favVenue, favVenueLocation, user_id, event_id);
         //    console.log(favEventName, favDate, favArtists, favVenue, favVenueLocation, user_id, event_id);
         
-           this.props.dispatch(addFavoriteEvent(favEventName, favDate, favArtists, favVenue, favVenueLocation, event_id, user_id ));
+        //    this.props.dispatch(addFavoriteEvent(favEventName, favDate, favHeadliner, favSupportingArtists, favVenue, favVenueLocation, user_id));
        }
 
     render() {

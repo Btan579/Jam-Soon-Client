@@ -20,8 +20,8 @@ export const addFavoriteEventError = error => ({
     error
 });
 
-export const addFavoriteEvent = (favEventName, favDate, favArtists, favVenue, favVenueLocation, event_id, user_id) => (dispatch, getState) => {
-    // console.log(favEventName, favDate, favArtists, favVenue, favVenueLocation, event_id, user_id);
+export const addFavoriteEvent = (user_id, favEventName, favDate, favArtists, favVenue, favVenueLocation, event_id) => (dispatch, getState) => {
+    console.log(favEventName, user_id, favDate, favArtists, favVenue, favVenueLocation, event_id);
     const authToken = getState().auth.authToken;
     return fetch(`${API_BASE_URL}/favevents/`, {
         method: 'POST',
@@ -118,7 +118,7 @@ export const addFavoriteArtist = (favArtistName, video_id, artist_id, user_id) =
 };
 
 export const fetchFavoriteArtists = (user_id) => (dispatch, getState) => {
-    // console.log(user_id);
+    console.log(user_id);
     const authToken = getState().auth.authToken;
     return fetch(`${API_BASE_URL}/favartists/${user_id}`, {
         method: 'GET',
@@ -129,10 +129,10 @@ export const fetchFavoriteArtists = (user_id) => (dispatch, getState) => {
         .then(res => normalizeResponseErrors(res))
         .then(res => res.json())
         .then((data) => {
-            // console.log(data);
+            console.log(data);
             // console.log(artists);
             let artists = data.favoriteArtists;
-            // console.log(artists);
+            console.log(artists);
             artists.forEach(function (artist)   {
                 let _id = artist._id;
                 let favArtistName = artist.favArtistName;
@@ -177,7 +177,7 @@ export const fetchFavoriteEvents = (user_id) => (dispatch, getState) => {
         .then(res => normalizeResponseErrors(res))
         .then(res => res.json())
         .then((data) => {
-            // console.log(data);
+            console.log(data);
             // console.log(artists);
             let events = data.favoriteEvents;
             // console.log(events);

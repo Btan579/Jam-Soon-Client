@@ -2,8 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import '../styles/FavoriteEvents.css';
 import { deleteFavoriteEvent } from '../actions/favorites';
-// import YouTube from 'react-youtube';
-import FavoriteArtistsSection from './FavoriteArtistsSection';
+import YouTube from 'react-youtube';
 
 export class FavoriteEvents extends React.Component {
     constructor(props) {
@@ -22,33 +21,34 @@ export class FavoriteEvents extends React.Component {
         this.props.dispatch(deleteFavoriteEvent(toDelete));
         console.log(toDelete);
     }
-    
+
     render() {
-        const favorites = this.props.favoriteEvents.map(event => {
-            return event.favArtists;
+        const opts = {
+            height: '100',
+            width: '200',
+            playerVars: { autoplay: 0 }
+        };
+
+        const favArtistsArr = this.props.favArtists.map((artist, index) => {
+            <div className="favArtists-cont"
+            >
+                <p>{artist.artistName}</p>
+                <YouTube 
+                    videoId={artist.video_id}
+                    opts={opts} 
+                />
+            </div>
         });
+
         
-        const favArtistsArr = favorites[0].map((event, index) => (
-        
-            <FavoriteArtistsSection 
-                key={index}
-                artistName={event.artistName}
-                artist_id={event.artist_id}
-                billIndex={event.billIndex}
-                billSlot={event.billSlot}
-                video_id={event.video_id}
-                event_id={event.event_id}
-            />
-        )); 
-        console.log(favorites);
         return (
             <div className="favorite-event"
                 ref="favevent"
                 data-_id={this.props._id}
                 data-user={this.props.currentUser_id}
                 data-event_id={this.props.event_id}
+                data-favartists={this.props.favArtists}
             >
-                {/* {console.log(favorites)} */}
                 <h4>{this.props.favEventName}</h4>
                 <h4>{this.props.favDate}</h4>
                 {favArtistsArr}
@@ -64,7 +64,6 @@ export class FavoriteEvents extends React.Component {
 
 const mapStateToProps = state => ({
     currentUser_id: state.auth.currentUser_id,
-    favoriteEvents: state.favorites.favoriteEvents
 });
 
 

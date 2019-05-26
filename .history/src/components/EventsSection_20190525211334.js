@@ -33,31 +33,29 @@ export class EventsSection extends React.Component {
        saveEvent(event) {
            const artists = this.props.performingArtists;
            console.log(artists);
-           let eventId = this.props.event_id;
-           const performers = this.props.videosData.filter(performer => {
-               return performer.event_id === eventId;
-           });
+        
 
-        //   let supportArtists = [];
-        //   for (let i = 0;  i < artists.length; i++){
-        //     //   let supportArtists = [];
-        //       let sArtist = artists[i].artistName;
-        //         // console.log(sArtist);
-        //       supportArtists.push(sArtist);
-        //   }
-        // //   console.log(supportArtists);
-        //   supportArtists.shift();
+          let supportArtists = [];
+          for (let i = 0;  i < artists.length; i++){
+            //   let supportArtists = [];
+              let sArtist = artists[i].artistName;
+                console.log(sArtist);
+              supportArtists.push(sArtist);
+          }
+          console.log(supportArtists);
+          supportArtists.shift();
           const favDate = this.props.eventDay;
           const favEventName = this.props.eventName;
-          const favArtists = performers;
+          const favArtists = this.props.perfs;
+          const favHeadliner = artists[0].artistName;
+          const favSupportingArtists = supportArtists;
           const favVenue = this.props.venueName;
           const favVenueLocation = this.props.venueLocation;
           const user_id = this.props.currentUser_id;
           const event_id = this.props.event_id;
            console.log(favEventName, favDate, favArtists, favVenue, favVenueLocation, user_id, event_id);
-        //    console.log(favEventName, favDate, favArtists, favVenue, favVenueLocation, user_id, event_id);
         
-           this.props.dispatch(addFavoriteEvent(favEventName, favDate, favArtists, favVenue, favVenueLocation, event_id, user_id ));
+        //    this.props.dispatch(addFavoriteEvent(favEventName, favDate, favHeadliner, favSupportingArtists, favVenue, favVenueLocation, user_id));
        }
 
     render() {

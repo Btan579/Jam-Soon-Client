@@ -24,31 +24,28 @@ export class FavoriteEvents extends React.Component {
     }
     
     render() {
-        const favorites = this.props.favoriteEvents.map(event => {
-            return event.favArtists;
-        });
-        
-        const favArtistsArr = favorites[0].map((event, index) => (
-        
+        const favorites = this.props.favoriteEvents;
+        const favArtistsArr = favorites.map((artist, index) => (
             <FavoriteArtistsSection 
                 key={index}
-                artistName={event.artistName}
-                artist_id={event.artist_id}
-                billIndex={event.billIndex}
-                billSlot={event.billSlot}
-                video_id={event.video_id}
-                event_id={event.event_id}
+                artistName={artist.artistName}
+                artist_id={artist.artist_id}
+                billIndex={artist.billIndex}
+                billSlot={artist.billSlot}
+                video_id={artist.video_id}
+                event_id={artist.event_id}
             />
         )); 
-        console.log(favorites);
+      
         return (
             <div className="favorite-event"
                 ref="favevent"
                 data-_id={this.props._id}
                 data-user={this.props.currentUser_id}
                 data-event_id={this.props.event_id}
+                data-favartists={this.props.favArtists}
             >
-                {/* {console.log(favorites)} */}
+                {console.log(favorites)}
                 <h4>{this.props.favEventName}</h4>
                 <h4>{this.props.favDate}</h4>
                 {favArtistsArr}

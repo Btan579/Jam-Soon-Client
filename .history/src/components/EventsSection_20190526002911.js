@@ -92,6 +92,7 @@ export class EventsSection extends React.Component {
             >
                 <h4>{this.props.eventName}</h4>
                     <div className="performers-section">
+                        {console.log(performers)}
                     {perfs}
                     </div>
                     <div className="venue-cont">

@@ -28,7 +28,7 @@ export class FavoriteEvents extends React.Component {
             return event.favArtists;
         });
         
-        const favArtistsArr = favorites[0].map((event, index) => (
+        const favArtistsArr = favorites.map((event, index) => (
         
             <FavoriteArtistsSection 
                 key={index}
