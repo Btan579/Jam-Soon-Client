@@ -147,7 +147,7 @@ export const fetchFavoriteArtists = (user_id) => (dispatch, getState) => {
 
 // Fetch Favorite Events
 export const FETCH_FAVORITE_EVENTS_SUCCESS = 'FETCH_FAVORITE_EVENTS_SUCCESS';
-export const fetchFavoriteEventsSuccess = (_id, favEventName, favDate, favArtists, favVenue, favVenueLocation, user_id, event_id) => ({
+export const fetchFavoriteEventsSuccess = (_id, favEventName, favDate, favArtists, favVenue, favVenueLocation, user_id, event_id ) => ({
     type: FETCH_FAVORITE_EVENTS_SUCCESS,
     _id,
     favEventName,
@@ -173,29 +173,28 @@ export const fetchFavoriteEvents = (user_id) => (dispatch, getState) => {
             Authorization: `Bearer ${authToken}`
         }
     })
-    .then(res => normalizeResponseErrors(res))
-    .then(res => res.json())
-    .then((data) => {
-        let events = data.favoriteEvents;
+        .then(res => normalizeResponseErrors(res))
+        .then(res => res.json())
+        .then((data) => {
+            let events = data.favoriteEvents;
 
-        events.forEach(function (evnt) {
-            let _id = evnt._id;
-            let favEventName = evnt.favEventName;
-            let favDate = evnt.favDate;
-            let favArtists = evnt.favArtists;
-            let favVenue = evnt.favVenue;
-            let favVenueLocation = evnt.favVenueLocation;
-            let event_id = evnt.event_id;
-            let user_id = evnt.user_id;
-            dispatch(fetchFavoriteEventsSuccess(_id, favEventName, favDate, favArtists, favVenue, favVenueLocation, user_id, event_id));
+            events.forEach(function (evnt) {
+                let _id = evnt._id;
+                let favEventName = evnt.favEventName;
+                let favDate = evnt.favDate;
+                let favArtists = evnt.favArtists;
+                let favVenue = evnt.favVenue;
+                let favVenueLocation = evnt.favVenueLocation;
+                let event_id = evnt.event_id;
+                let user_id = evnt.user_id;
+                dispatch(fetchFavoriteEventsSuccess(_id, favEventName, favDate, favArtists, favVenue, favVenueLocation, user_id, event_id));
+            });
+        })
+        .catch(err => {
+            dispatch(fetchFavoriteArtistsError(err));
         });
-    })
-    .catch(err => {
-        dispatch(fetchFavoriteArtistsError(err));
-    });
 };
 
-// Delete Favorite Artist
 export const DELETE_FAVORITE_ARTIST_SUCCESS = 'DELETE_FAVORITE_ARTIST_SUCCESS';
 export const deleteFavoriteArtistSuccess = ( favoriteArtist ) => ({
     type: DELETE_FAVORITE_ARTIST_SUCCESS,
@@ -216,17 +215,16 @@ export const deleteFavoriteArtist = (_id) => (dispatch, getState) => {
             Authorization: `Bearer ${authToken}`
         }
     })
-    .then(res => normalizeResponseErrors(res))
-    .then(res => res.json())
-    .then(json => {
-        dispatch(deleteFavoriteArtistSuccess(json))
-    })
-    .catch(err => {
-        dispatch(deleteFavoriteArtistError(err));
-    });
+        .then(res => normalizeResponseErrors(res))
+        .then(res => res.json())
+        .then(json => {
+            dispatch(deleteFavoriteArtistSuccess(json))
+        })
+        .catch(err => {
+            dispatch(deleteFavoriteArtistError(err));
+        });
 };
 
-// Delete Favorite Events
 export const DELETE_FAVORITE_EVENT_SUCCESS = 'DELETE_FAVORITE_EVENT_SUCCESS';
 export const deleteFavoriteEventSuccess = (favoriteEvent) => ({
     type: DELETE_FAVORITE_EVENT_SUCCESS,
@@ -247,17 +245,16 @@ export const deleteFavoriteEvent = (_id) => (dispatch, getState) => {
             Authorization: `Bearer ${authToken}`
         }
     })
-    .then(res => normalizeResponseErrors(res))
-    .then(res => res.json())
-    .then(json => {
-        dispatch(deleteFavoriteEventSuccess(json))
-    })
-    .catch(err => {
-        dispatch(deleteFavoriteEventError(err));
-    });
+        .then(res => normalizeResponseErrors(res))
+        .then(res => res.json())
+        .then(json => {
+            dispatch(deleteFavoriteEventSuccess(json))
+        })
+        .catch(err => {
+            dispatch(deleteFavoriteEventError(err));
+        });
 };
 
-// Clear Favorites
 export const CLEAR_FAVORITES = 'CLEAR_FAVORITES';
 export const clearFavorites = initialState => ({
     type: CLEAR_FAVORITES,

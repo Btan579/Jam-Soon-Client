@@ -19,6 +19,7 @@ export class FavoriteEvents extends React.Component {
     }
     onDelete(toDelete) {
         this.props.dispatch(deleteFavoriteEvent(toDelete));
+        console.log(toDelete);
     }
     
     render() {
