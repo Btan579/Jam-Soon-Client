@@ -1,22 +1,37 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 import TopNav from "../components/TopNav";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import FavoriteArtists from "../components/FavoriteArtists";
 import FavoriteEvents from "../components/FavoriteEvents";
+import { fetchFavoriteArtists, fetchFavoriteEvents, clearFavorites } from '../actions/favorites';
 import '../styles/FavoritesPage.css';
 
 export class FavoritesPage extends React.Component {
+    componentDidMount() {
+        const user_id = this.props.currentUser_id;
+        // console.log(user_id);
+        this.props.dispatch(fetchFavoriteArtists(user_id));
+        this.props.dispatch(fetchFavoriteEvents(user_id));
+    }
+    componentWillUnmount() {
+        this.props.dispatch(clearFavorites());
+    }
     render() {
-        if (props.loggedIn) {
+        if (this.props.loggedIn) {
             return <Redirect to="/" />;
         }
+
         const favoriteArtists = this.props.favoriteArtists.map((favoriteArtist, index) => (
             <FavoriteArtists
                 key={index}
-                name={favoriteArtist.name}
-                playlist={favoriteArtist.playlist}
+                favArtistName={favoriteArtist.favArtistName}
+                video_id={favoriteArtist.video_id}
+                _id={favoriteArtist._id}
+                currentUser_id={favoriteArtist.currentUser_id}
+                artist_id={favoriteArtist.artist_id}
             />
         ));
 
@@ -25,13 +40,11 @@ export class FavoritesPage extends React.Component {
                 key={index}
                 favEventName={favoriteEvent.favEventName}
                 favDate={favoriteEvent.favDate}
-                favHeadliner={favoriteEvent.favHeadliner}
-                favSupportingArtists={favoriteEvent.favSupportingArtists}
                 favVenue={favoriteEvent.favVenue}
-                favCity={favoriteEvent.favCity}
-                favState={favoriteEvent.favState}
-                favZip={favoriteEvent.favZip}
-                favCountry={favoriteEvent.favCountry}
+                favVenueLocation={favoriteEvent.favVenueLocation}
+                _id={favoriteEvent._id}
+                currentUser_id={favoriteEvent.currentUser_id}
+                favArtists={favoriteEvent.favArtists}
             />
         ));
 
@@ -40,11 +53,11 @@ export class FavoritesPage extends React.Component {
                 <TopNav />
                 <Header />
                 <header>
-                    <h3>My Favorites</h3>
+                    <h1>My Favorites</h1>
                 </header>
-                <h4>Artists</h4>
+                <h2>Artists</h2>
                 {favoriteArtists}
-                <h4>Events</h4>
+                <h2>Events</h2>
                 {favoriteEvents}
                 <Footer />
             </div>
@@ -53,9 +66,10 @@ export class FavoritesPage extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    favoriteArtists: state.eventsState.favoriteArtists,
-    favoriteEvents: state.eventsState.favoriteEvents,
-    loggedIn: state.auth.currentUser == null
+    favoriteArtists: state.favorites.favoriteArtists,
+    favoriteEvents: state.favorites.favoriteEvents,
+    loggedIn: state.auth.currentUser == null,
+    currentUser_id: state.auth.currentUser_id,
 });
 
 export default connect(mapStateToProps)(FavoritesPage);

@@ -22,7 +22,7 @@ export class FavoriteArtists extends React.Component {
     
     render() {
         const opts = {
-            height: '100',
+            height: '150',
             width: '100',
             playerVars: { autoplay: 0 }
         };

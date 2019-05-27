@@ -12,6 +12,7 @@ import '../styles/FavoritesPage.css';
 export class FavoritesPage extends React.Component {
     componentDidMount() {
         const user_id = this.props.currentUser_id;
+        // console.log(user_id);
         this.props.dispatch(fetchFavoriteArtists(user_id));
         this.props.dispatch(fetchFavoriteEvents(user_id));
     }
@@ -22,6 +23,7 @@ export class FavoritesPage extends React.Component {
         if (this.props.loggedIn) {
             return <Redirect to="/" />;
         }
+
         const favoriteArtists = this.props.favoriteArtists.map((favoriteArtist, index) => (
             <FavoriteArtists
                 key={index}
@@ -32,6 +34,20 @@ export class FavoritesPage extends React.Component {
                 artist_id={favoriteArtist.artist_id}
             />
         ));
+
+        const favoriteEvents = this.props.favoriteEvents.map((favoriteEvent, index) => (
+            <FavoriteEvents
+                key={index}
+                favEventName={favoriteEvent.favEventName}
+                favDate={favoriteEvent.favDate}
+                favVenue={favoriteEvent.favVenue}
+                favVenueLocation={favoriteEvent.favVenueLocation}
+                _id={favoriteEvent._id}
+                currentUser_id={favoriteEvent.currentUser_id}
+                favArtists={favoriteEvent.favArtists}
+            />
+        ));
+
         return (
             <div className="favorites-page">
                 <TopNav />
@@ -41,8 +57,8 @@ export class FavoritesPage extends React.Component {
                 </header>
                 <h2>Artists</h2>
                 {favoriteArtists}
-                <h2>Events</h2>
-                <FavoriteEvents />
+                <h3>Events</h3>
+                {favoriteEvents}
                 <Footer />
             </div>
         );

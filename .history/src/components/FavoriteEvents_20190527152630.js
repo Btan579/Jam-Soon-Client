@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import '../styles/FavoriteEvents.css';
 import { deleteFavoriteEvent } from '../actions/favorites';
+// import YouTube from 'react-youtube';
 import FavoriteArtistsSection from './FavoriteArtistsSection';
 
 export class FavoriteEvents extends React.Component {
@@ -18,13 +19,16 @@ export class FavoriteEvents extends React.Component {
         };
     }
     onDelete(toDelete) {
-        // this.props.dispatch(deleteFavoriteEvent(toDelete));
+        this.props.dispatch(deleteFavoriteEvent(toDelete));
         console.log(toDelete);
     }
     
     render() {
+        let evntId;
+
+        console.log(this.props.favoriteEvents);
         return (
-            <div className="-fav-event-cont">  
+            <div classname="-fav-event-cont">  
                 {this.props.favoriteEvents.map((event, index) => (
                     <div className="favorite-event"
                         key={index}
@@ -38,6 +42,7 @@ export class FavoriteEvents extends React.Component {
                         <h4>{event.favVenueLocation}</h4>
                         {event.favArtists.sort((a, b) => a.billIndex > b.billIndex ? 1 : -1)
                         .map((favEvntArtist, k) => (
+                            // console.log(favEvntArtist)
                             <FavoriteArtistsSection
                                 key={k}
                                 artistName={favEvntArtist.artistName}
@@ -49,17 +54,32 @@ export class FavoriteEvents extends React.Component {
                             />
                         ))}
                         <button type="button"
-                            onClick={() => this.onDelete(event._id)}>Delete event</button>
+                            onClick={() => this.onDelete(this.props._id)}>Delete event</button>
                     </div>
-                ))}
+                ))
+                }
             </div>
+            
         );
     };
 }
     
+
 const mapStateToProps = state => ({
     currentUser_id: state.auth.currentUser_id,
     favoriteEvents: state.favorites.favoriteEvents
 });
 
+
 export default connect(mapStateToProps)(FavoriteEvents);
+
+// FavoriteEvents.defaultProps = {
+//     favEventName: "",
+//     favDate: "",
+//     favHeadliner: "",
+//     favSupportingArtists: [""],
+//     favVenue: "",
+//     favCity: "",
+//     favState: "",
+//     favZip: "",
+// };

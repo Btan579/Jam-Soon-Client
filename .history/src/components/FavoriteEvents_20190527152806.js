@@ -18,13 +18,13 @@ export class FavoriteEvents extends React.Component {
         };
     }
     onDelete(toDelete) {
-        // this.props.dispatch(deleteFavoriteEvent(toDelete));
+        this.props.dispatch(deleteFavoriteEvent(toDelete));
         console.log(toDelete);
     }
     
     render() {
         return (
-            <div className="-fav-event-cont">  
+            <div classname="-fav-event-cont">  
                 {this.props.favoriteEvents.map((event, index) => (
                     <div className="favorite-event"
                         key={index}
@@ -49,7 +49,7 @@ export class FavoriteEvents extends React.Component {
                             />
                         ))}
                         <button type="button"
-                            onClick={() => this.onDelete(event._id)}>Delete event</button>
+                            onClick={() => this.onDelete(this.props._id)}>Delete event</button>
                     </div>
                 ))}
             </div>

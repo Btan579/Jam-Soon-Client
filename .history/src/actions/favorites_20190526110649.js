@@ -84,6 +84,8 @@ export const addFavoriteArtistError = error => ({
     error
 });
 
+
+
 export const addFavoriteArtist = (favArtistName, video_id, artist_id, user_id) => (dispatch, getState) => {
     const authToken = getState().auth.authToken;
     return fetch(`${API_BASE_URL}/favartists/`, {
