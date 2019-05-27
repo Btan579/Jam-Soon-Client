@@ -12,7 +12,7 @@ import '../styles/FavoritesPage.css';
 export class FavoritesPage extends React.Component {
     componentDidMount() {
         const user_id = this.props.currentUser_id;
-        this.props.dispatch(clearFavorites());
+        // this.props.dispatch(clearFavorites());
         this.props.dispatch(fetchFavoriteArtists(user_id));
         this.props.dispatch(fetchFavoriteEvents(user_id));
     }

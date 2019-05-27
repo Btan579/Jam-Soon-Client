@@ -4,7 +4,7 @@ import { normalizeResponseErrors } from './utils';
 // Add Favortite Events
 
 export const ADD_FAVORITE_EVENT_SUCCESS = 'ADD_FAVORITE_EVENT_SUCCESS';
-export const addFavoriteEventSuccess = (favEventName, favDate, favArtists, favVenue, favVenueLocation, event_id, user_id, _id) => ({
+export const addFavoriteEventSuccess = (favEventName, favDate, favArtists,  favVenue, favVenueLocation, event_id, user_id, _id) => ({
     type: ADD_FAVORITE_EVENT_SUCCESS,
     favEventName,
     favDate,
@@ -40,7 +40,7 @@ export const addFavoriteEvent = (favEventName, favDate, favArtists, favVenue, fa
         let favVenueLocation = event.favVenueLocation;
         let event_id = event.event_id;
         let user_id = event.user_id;
-        dispatch(addFavoriteEventSuccess(favEventName, favDate, favArtists, favVenue, favVenueLocation, event_id, user_id, _id));
+        dispatch(addFavoriteEventSuccess(_id, favEventName, favDate, favArtists, favVenue, favVenueLocation, event_id, user_id));
     })
     .catch(err => {
         dispatch(addFavoriteEventError(err));
@@ -62,6 +62,12 @@ export const addFavoriteArtistSuccess = (favArtistName, video_id, artist_id, use
     artist_id,
     user_id,
     _id
+});
+
+export const ADD_FAVORITE_ARTIST_ERROR = 'ADD_FAVORITE_ARTIST_ERROR';
+export const addFavoriteArtistError = error => ({
+    type: ADD_FAVORITE_ARTIST_ERROR,
+    error
 });
 
 export const addFavoriteArtist = (favArtistName, video_id, artist_id, user_id) => (dispatch, getState) => {
@@ -88,18 +94,12 @@ export const addFavoriteArtist = (favArtistName, video_id, artist_id, user_id) =
         let video_id = artist.video_id;
         let artist_id = artist.artist_id;
         let user_id = artist.user_id;
-        dispatch(addFavoriteArtistSuccess(favArtistName, video_id, artist_id, user_id, _id));
+        dispatch(addFavoriteArtistSuccess(_id, favArtistName, video_id, artist_id, user_id));
     })
     .catch(err => {
         dispatch(fetchFavoriteArtistsError(err));
     });
 };
-
-export const ADD_FAVORITE_ARTIST_ERROR = 'ADD_FAVORITE_ARTIST_ERROR';
-export const addFavoriteArtistError = error => ({
-    type: ADD_FAVORITE_ARTIST_ERROR,
-    error
-});
 
 // Fetch Favorite Artists
 export const FETCH_FAVORITE_ARTISTS_SUCCESS = 'FETCH_FAVORITE_ARTISTS_SUCCESS';
