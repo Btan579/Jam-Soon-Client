@@ -16,6 +16,7 @@ export class FavoriteArtists extends React.Component {
     }
     onDelete(toDelete) {
         this.props.dispatch(deleteFavoriteArtist(toDelete));
+        console.log(toDelete);
     }
     
     render() {
