@@ -11,7 +11,6 @@ import RegisterPage from "./containers/RegisterPage";
 import FavoritesPage from "./containers/FavoritesPage";
 import { refreshAuthToken } from './actions/auth';
 import { ToastContainer } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 
 
@@ -47,14 +46,7 @@ export class App extends React.Component {
   render() {
     return (
         <div className="App">
-        <ToastContainer 
-          autoClose={2000} 
-          position="top-center"
-          hideProgressBar
-          pauseOnFocusLoss={false}
-          pauseOnHover={false}
-
-      />
+        <ToastContainer autoClose={2000} />
           <Route exact path="/" component={LandingPage} />
             <Route exact path="/register" component={RegisterPage} />
             <Route exact path="/login" component={LoginPage} />

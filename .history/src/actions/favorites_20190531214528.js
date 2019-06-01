@@ -179,9 +179,10 @@ export const fetchFavoriteArtists = (user_id) => (dispatch, getState) => {
     .then(res => normalizeResponseErrors(res))
     .then(res => res.json())
     .then((data) => {
-        let artists = data.favoriteArtists;;
-        toast.info("Loading favorites...", {
-            autoClose: 2000,
+        let artists = data.favoriteArtists;
+        let aTimer = artists.length * 200;
+        toast.info("Loading favorite arists...", {
+            autoClose: aTimer,
             hideProgressBar: false,
         });
         
@@ -231,7 +232,11 @@ export const fetchFavoriteEvents = (user_id) => (dispatch, getState) => {
     .then(res => res.json())
     .then((data) => {
         let events = data.favoriteEvents;
-
+        let eTimer = events.length * 200;
+        toast.info("Loading favorite events...", {
+            autoClose: aTimer,
+            hideProgressBar: false,
+        });
         events.forEach(function (evnt) {
             let _id = evnt._id;
             let favEventName = evnt.favEventName;

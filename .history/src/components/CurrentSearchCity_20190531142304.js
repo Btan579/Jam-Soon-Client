@@ -6,7 +6,7 @@ export function CurrentSearchCity(props) {
         return (
             
             <div className="metro-search-error-cont">
-                <h2> Invalid city entered</h2>
+                <h2> Invalid city inputed</h2>
                 <p>Please check the proper spelling or choose the correct state and try again</p>
                 <p>A proper metro area will display when a valid city is selected</p>
             </div>

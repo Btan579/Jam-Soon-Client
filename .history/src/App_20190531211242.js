@@ -52,9 +52,8 @@ export class App extends React.Component {
           position="top-center"
           hideProgressBar
           pauseOnFocusLoss={false}
-          pauseOnHover={false}
 
-      />
+        />
           <Route exact path="/" component={LandingPage} />
             <Route exact path="/register" component={RegisterPage} />
             <Route exact path="/login" component={LoginPage} />

@@ -179,12 +179,8 @@ export const fetchFavoriteArtists = (user_id) => (dispatch, getState) => {
     .then(res => normalizeResponseErrors(res))
     .then(res => res.json())
     .then((data) => {
-        let artists = data.favoriteArtists;;
-        toast.info("Loading favorites...", {
-            autoClose: 2000,
-            hideProgressBar: false,
-        });
-        
+        let artists = data.favoriteArtists;
+        console.log(artists.length);
         artists.forEach(function (artist)  {
             let _id = artist._id;
             let favArtistName = artist.favArtistName;

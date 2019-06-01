@@ -1,15 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 export function CurrentSearchCity(props) {
+    notify = () => toast("Wow so easy !");
     if (props.metroError) {
         return (
-            
-            <div className="metro-search-error-cont">
-                <h2> Invalid city entered</h2>
-                <p>Please check the proper spelling or choose the correct state and try again</p>
-                <p>A proper metro area will display when a valid city is selected</p>
+
+            <div>
+                <button onClick={this.notify}>Notify !</button>
+                <ToastContainer />
             </div>
+            // <div className="metro-search-error-cont">
+            //     <h2> Invalid city inputed</h2>
+            //     <p>Please check the proper spelling or choose the correct state and try again</p>
+            //     <p>A proper metro area will display when a valid city is selected</p>
+            // </div>
         );
     } else if (props.currentSearchCity === ""){
         return (

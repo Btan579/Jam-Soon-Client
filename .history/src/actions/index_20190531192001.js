@@ -7,29 +7,19 @@ export const setSearchDate = currentSearchDate => ({
     type: SET_SEARCH_DATE,
     currentSearchDate
 });
-// Fetch Metro area data
+
 export const FETCH_METRO_CODE_SUCCESS = 'FETCH_METRO_CODE_SUCCESS';
-export function fetchMetroCodeSuccess(metroCode, city) {
-    return function (dispatch) {
-        dispatch({
-            type: FETCH_METRO_CODE_SUCCESS,
-            metroCode,
-            city
-        });
-        toast.success("SET METRO AREA SUCCESSFUL");
-    };
-}
+export const fetchMetroCodeSuccess = (metroCode, city) => ({
+    type: FETCH_METRO_CODE_SUCCESS,
+    metroCode,
+    city
+});
 
 export const FETCH_METRO_CODE_ERROR = 'FETCH_METRO_CODE_ERROR';
-export function fetchMetroCodeError(err) {
-    return function (dispatch) {
-        dispatch({
-            type: FETCH_METRO_CODE_ERROR,
-            err
-        });
-        toast.error("INVALID city input");
-    };
-}
+export const fetchMetroCodeError = err => ({
+    type: FETCH_METRO_CODE_ERROR,
+    err
+});
 
 export const fetchMetroCode = (countryCode, stateValue, cityName) => dispatch => {
     fetch(`${SONG_KICK_BASE_URL_METRO}${cityName},${stateValue},${countryCode}&apikey=${SONG_KICK_KEY}`)
@@ -46,6 +36,7 @@ export const fetchMetroCode = (countryCode, stateValue, cityName) => dispatch =>
             let metrodata = data.resultsPage.results.location[0].metroArea.id;
             let city = data.resultsPage.results.location[0].metroArea.displayName;
             // console.log(metrodata);
+            toast.success("FETCH SUCCESS");
             dispatch(fetchMetroCodeSuccess(metrodata, city));
         })
         .catch(err => {
@@ -55,29 +46,17 @@ export const fetchMetroCode = (countryCode, stateValue, cityName) => dispatch =>
 
 
 // Fetch Events
-export const FETCH_EVENTS_SUCCESS = 'FETCH_EVENTS_SUCCESS';
-export function fetchEventsSuccess(eventsArr) {
-    return function (dispatch) {
-        dispatch({
-            type: FETCH_EVENTS_SUCCESS,
-            eventsArr
-        });
-        toast.success("Events search SUCCESSFUL", {
-            autoClose: 1500
-        });
-    };
-}
+export const FETCH_EVENTS_SUCCESS = 'FETCH_EVENT_SUCCESS';
+export const fetchEventsSuccess = (eventsArr) => ({
+    type: FETCH_EVENTS_SUCCESS,
+    eventsArr
+});
 
 export const FETCH_EVENTS_ERROR = 'FETCH_EVENTS_ERROR';
-export function fetchEventsError(err) {
-    return function (dispatch) {
-        dispatch({
-            type: FETCH_EVENTS_ERROR,
-            err
-        });
-        toast.error("Please set a metro area first!");
-    };
-}
+export const fetchEventsError = err => ({
+    type: FETCH_EVENTS_ERROR,
+    err
+});
 
 export const fetchEvents = (metroCode, dateSelected) => dispatch => {
     let eventsArr = [];
@@ -95,12 +74,13 @@ export const fetchEvents = (metroCode, dateSelected) => dispatch => {
         })
         .then(data => {
             let events = data.resultsPage.results.event;
-            let timerCount = events.length / 10 ;
-        
+            console.log(events);
             for (let i = 0; i < events.length; i++) {
                 let performingArtists = [];
                 let performers = events[i].performance
                 let dateC = moment(events[i].start.date).format("MMMM D, YYYY");
+                // let clientDate = moment(dateC).format('MMMM Do YYYY');
+                // console.log(clientDate);
                 let eventDay = dateC;
                 let eventName = events[i].displayName.replace(` (${dateC})`, '');
 
@@ -111,6 +91,7 @@ export const fetchEvents = (metroCode, dateSelected) => dispatch => {
                         billSlot: performer.billing,
                         billIndex: performer.billingIndex,
                         event_id: events[i].id,
+                       
                     };
                     performingArtists.push(act);
                     return dispatch(fetchYTplaylists(act.artistName, act));
@@ -129,13 +110,7 @@ export const fetchEvents = (metroCode, dateSelected) => dispatch => {
                 }
                 eventsArr.push(evnt);
             }
-            
-            toast.info("Loading events artists playlists...", {
-                autoClose: (timerCount * 2500),
-                hideProgressBar: false,
-            });
-            
-            dispatch(fetchEventsSuccess(eventsArr));
+            dispatch(fetchEventsSuccess(eventsArr, ));
         })
         .catch(err => {
             console.warn(err);

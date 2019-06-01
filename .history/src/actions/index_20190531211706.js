@@ -131,8 +131,9 @@ export const fetchEvents = (metroCode, dateSelected) => dispatch => {
             }
             
             toast.info("Loading events artists playlists...", {
-                autoClose: (timerCount * 2500),
+                autoClose: (timerCount * 2000),
                 hideProgressBar: false,
+                pauseOnHover: false
             });
             
             dispatch(fetchEventsSuccess(eventsArr));

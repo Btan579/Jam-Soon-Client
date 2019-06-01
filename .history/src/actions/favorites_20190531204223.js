@@ -132,16 +132,16 @@ export const addFavoriteArtist = (favArtistName, video_id, artist_id, user_id) =
         dispatch(addFavoriteArtistSuccess(favArtistName, video_id, artist_id, user_id, _id));
     })
     .catch(err => {
-        dispatch(addFavoriteArtistError(err));
+        dispatch(fetchFavoriteArtistsError(err));
     });
 };
 
 export const ADD_FAVORITE_ARTIST_ERROR = 'ADD_FAVORITE_ARTIST_ERROR';
-export function addFavoriteArtistError(err) {
+export function addFavoriteArtistError(error) {
     return function (dispatch) {
         dispatch({
             type: ADD_FAVORITE_ARTIST_ERROR,
-            err
+            error
         });
         toast.error("Artist already favorited!");
     };
@@ -179,13 +179,9 @@ export const fetchFavoriteArtists = (user_id) => (dispatch, getState) => {
     .then(res => normalizeResponseErrors(res))
     .then(res => res.json())
     .then((data) => {
-        let artists = data.favoriteArtists;;
-        toast.info("Loading favorites...", {
-            autoClose: 2000,
-            hideProgressBar: false,
-        });
-        
-        artists.forEach(function (artist)  {
+        let artists = data.favoriteArtists;
+            
+        artists.forEach(function (artist)   {
             let _id = artist._id;
             let favArtistName = artist.favArtistName;
             let video_id = artist.video_id;

@@ -16,6 +16,13 @@ export class FavoritesPage extends React.Component {
         this.props.dispatch(clearFavorites());
         this.props.dispatch(fetchFavoriteArtists(user_id));
         this.props.dispatch(fetchFavoriteEvents(user_id));
+        if (this.props.loggedIn) {
+            toast.info("Loading favorites...", {
+                autoClose: 3000,
+                hideProgressBar: false,
+            });
+        }
+       
     }
     componentWillUnmount() {
         this.props.dispatch(clearFavorites());
@@ -54,7 +61,7 @@ export class FavoritesPage extends React.Component {
 const mapStateToProps = state => ({
     favoriteArtists: state.favorites.favoriteArtists,
     favoriteEvents: state.favorites.favoriteEvents,
-    loggedIn: state.auth.currentUser == null,
+    loggedIn: state.auth.currentUser === null,
     currentUser_id: state.auth.currentUser_id,
 });
 

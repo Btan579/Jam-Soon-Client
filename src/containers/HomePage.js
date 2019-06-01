@@ -15,6 +15,7 @@ export class HomePage extends React.Component {
     render() {
         if (this.props.loggedIn) {
             return <Redirect to="/" />;
+            window.scrollTo(0, 0);
         }
          const events = this.props.events.map((event, index) => (
                  <EventsSection

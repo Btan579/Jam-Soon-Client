@@ -16,6 +16,13 @@ export class FavoritesPage extends React.Component {
         this.props.dispatch(clearFavorites());
         this.props.dispatch(fetchFavoriteArtists(user_id));
         this.props.dispatch(fetchFavoriteEvents(user_id));
+        if (this.props.loggedIn) {
+            toast.info("Loading favorites...", {
+                autoClose: 3000,
+                hideProgressBar: false,
+            });
+        }
+       
     }
     componentWillUnmount() {
         this.props.dispatch(clearFavorites());

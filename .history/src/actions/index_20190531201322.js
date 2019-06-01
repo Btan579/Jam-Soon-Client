@@ -62,9 +62,7 @@ export function fetchEventsSuccess(eventsArr) {
             type: FETCH_EVENTS_SUCCESS,
             eventsArr
         });
-        toast.success("Events search SUCCESSFUL", {
-            autoClose: 1500
-        });
+        toast.success("Events search SUCCESSFUL");
     };
 }
 
@@ -95,12 +93,12 @@ export const fetchEvents = (metroCode, dateSelected) => dispatch => {
         })
         .then(data => {
             let events = data.resultsPage.results.event;
-            let timerCount = events.length / 10 ;
-        
             for (let i = 0; i < events.length; i++) {
                 let performingArtists = [];
                 let performers = events[i].performance
                 let dateC = moment(events[i].start.date).format("MMMM D, YYYY");
+                // let clientDate = moment(dateC).format('MMMM Do YYYY');
+                // console.log(clientDate);
                 let eventDay = dateC;
                 let eventName = events[i].displayName.replace(` (${dateC})`, '');
 
@@ -111,6 +109,7 @@ export const fetchEvents = (metroCode, dateSelected) => dispatch => {
                         billSlot: performer.billing,
                         billIndex: performer.billingIndex,
                         event_id: events[i].id,
+                       
                     };
                     performingArtists.push(act);
                     return dispatch(fetchYTplaylists(act.artistName, act));
@@ -129,10 +128,9 @@ export const fetchEvents = (metroCode, dateSelected) => dispatch => {
                 }
                 eventsArr.push(evnt);
             }
-            
             toast.info("Loading events artists playlists...", {
-                autoClose: (timerCount * 2500),
-                hideProgressBar: false,
+                autoClose: 15000,
+                hideProgressBar: false
             });
             
             dispatch(fetchEventsSuccess(eventsArr));

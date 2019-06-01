@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-// import { ToastContainer, toast } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 export class CurrentSearchDate extends React.Component{
     
 
@@ -11,7 +11,6 @@ export class CurrentSearchDate extends React.Component{
         <div className="date-search-error-cont">
           <h2> Please set a metro area</h2>
           <p>A metro area must be set before selecting a date!</p>
-          <p>Select another date as there may be no events scheduled in the area yet</p>
         </div>
       );
     }

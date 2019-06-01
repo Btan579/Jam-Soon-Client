@@ -30,7 +30,7 @@ export function addFavoriteEventSuccess(favEventName, favDate, favArtists, favVe
             user_id,
             _id
         });
-        toast.success("Event favorited successfully");
+        toast.success("Event saved successfully");
     };
 }
 
@@ -73,7 +73,7 @@ export function addFavoriteEventError(err) {
             type: ADD_FAVORITE_EVENT_ERROR,
             err
         });
-        toast.error("Event already favorited!");
+        toast.error("Event already favorited");
     };
 }
 // export const addFavoriteEventError = error => ({
@@ -83,27 +83,14 @@ export function addFavoriteEventError(err) {
 
 // Add Favorite Artist
 export const ADD_FAVORITE_ARTIST_SUCCESS = 'ADD_FAVORITE_ARTIST_SUCCESS';
-export function addFavoriteArtistSuccess(favArtistName, video_id, artist_id, user_id, _id) {
-    return function (dispatch) {
-        dispatch({
-            type: ADD_FAVORITE_ARTIST_SUCCESS,
-            favArtistName,
-            video_id,
-            artist_id,
-            user_id,
-            _id
-        });
-        toast.success("Artist favorited successfully!");
-    };
-}
-// export const addFavoriteArtistSuccess = (favArtistName, video_id, artist_id, user_id, _id) => ({
-//     type: ADD_FAVORITE_ARTIST_SUCCESS,
-//     favArtistName,
-//     video_id,
-//     artist_id,
-//     user_id,
-// //     _id
-// });
+export const addFavoriteArtistSuccess = (favArtistName, video_id, artist_id, user_id, _id) => ({
+    type: ADD_FAVORITE_ARTIST_SUCCESS,
+    favArtistName,
+    video_id,
+    artist_id,
+    user_id,
+    _id
+});
 
 export const addFavoriteArtist = (favArtistName, video_id, artist_id, user_id) => (dispatch, getState) => {
     const authToken = getState().auth.authToken;
@@ -132,24 +119,15 @@ export const addFavoriteArtist = (favArtistName, video_id, artist_id, user_id) =
         dispatch(addFavoriteArtistSuccess(favArtistName, video_id, artist_id, user_id, _id));
     })
     .catch(err => {
-        dispatch(addFavoriteArtistError(err));
+        dispatch(fetchFavoriteArtistsError(err));
     });
 };
 
 export const ADD_FAVORITE_ARTIST_ERROR = 'ADD_FAVORITE_ARTIST_ERROR';
-export function addFavoriteArtistError(err) {
-    return function (dispatch) {
-        dispatch({
-            type: ADD_FAVORITE_ARTIST_ERROR,
-            err
-        });
-        toast.error("Artist already favorited!");
-    };
-}
-// export const addFavoriteArtistError = error => ({
-//     type: ADD_FAVORITE_ARTIST_ERROR,
-//     error
-// });
+export const addFavoriteArtistError = error => ({
+    type: ADD_FAVORITE_ARTIST_ERROR,
+    error
+});
 
 // Fetch Favorite Artists
 export const FETCH_FAVORITE_ARTISTS_SUCCESS = 'FETCH_FAVORITE_ARTISTS_SUCCESS';
@@ -179,13 +157,9 @@ export const fetchFavoriteArtists = (user_id) => (dispatch, getState) => {
     .then(res => normalizeResponseErrors(res))
     .then(res => res.json())
     .then((data) => {
-        let artists = data.favoriteArtists;;
-        toast.info("Loading favorites...", {
-            autoClose: 2000,
-            hideProgressBar: false,
-        });
-        
-        artists.forEach(function (artist)  {
+        let artists = data.favoriteArtists;
+            
+        artists.forEach(function (artist)   {
             let _id = artist._id;
             let favArtistName = artist.favArtistName;
             let video_id = artist.video_id;
@@ -251,19 +225,10 @@ export const fetchFavoriteEvents = (user_id) => (dispatch, getState) => {
 
 // Delete Favorite Artist
 export const DELETE_FAVORITE_ARTIST_SUCCESS = 'DELETE_FAVORITE_ARTIST_SUCCESS';
-export function deleteFavoriteArtistSuccess(favoriteArtist) {
-    return function (dispatch) {
-        dispatch({
-            type: DELETE_FAVORITE_ARTIST_SUCCESS,
-            favoriteArtist
-        });
-        toast.warning("Artist removed from favorites!");
-    };
-}
-// export const deleteFavoriteArtistSuccess = ( favoriteArtist ) => ({
-//     type: DELETE_FAVORITE_ARTIST_SUCCESS,
-//     favoriteArtist
-// });
+export const deleteFavoriteArtistSuccess = ( favoriteArtist ) => ({
+    type: DELETE_FAVORITE_ARTIST_SUCCESS,
+    favoriteArtist
+});
 
 export const DELETE_FAVORITE_ARTIST_ERROR = 'DELETE_FAVORITE_ARTIST_ERROR';
 export const deleteFavoriteArtistError = error => ({
@@ -291,20 +256,10 @@ export const deleteFavoriteArtist = (_id) => (dispatch, getState) => {
 
 // Delete Favorite Events
 export const DELETE_FAVORITE_EVENT_SUCCESS = 'DELETE_FAVORITE_EVENT_SUCCESS';
-export function deleteFavoriteEventSuccess(favoriteEvent) {
-    return function (dispatch) {
-        dispatch({
-            type: DELETE_FAVORITE_EVENT_SUCCESS,
-            favoriteEvent
-        });
-        toast.warning("Event removed from favorites!");
-    };
-}
-
-// export const deleteFavoriteEventSuccess = (favoriteEvent) => ({
-//     type: DELETE_FAVORITE_EVENT_SUCCESS,
-//     favoriteEvent
-// });
+export const deleteFavoriteEventSuccess = (favoriteEvent) => ({
+    type: DELETE_FAVORITE_EVENT_SUCCESS,
+    favoriteEvent
+});
 
 export const DELETE_FAVORITE_EVENT_ERROR = 'DELETE_FAVORITE_EVENT_ERROR';
 export const deleteFavoriteEventError = error => ({

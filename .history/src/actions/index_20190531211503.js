@@ -96,6 +96,7 @@ export const fetchEvents = (metroCode, dateSelected) => dispatch => {
         .then(data => {
             let events = data.resultsPage.results.event;
             let timerCount = events.length / 10 ;
+            console.log(timerCount);
         
             for (let i = 0; i < events.length; i++) {
                 let performingArtists = [];
@@ -131,8 +132,8 @@ export const fetchEvents = (metroCode, dateSelected) => dispatch => {
             }
             
             toast.info("Loading events artists playlists...", {
-                autoClose: (timerCount * 2500),
-                hideProgressBar: false,
+                autoClose: (timerCount * 2000),
+                hideProgressBar: false
             });
             
             dispatch(fetchEventsSuccess(eventsArr));

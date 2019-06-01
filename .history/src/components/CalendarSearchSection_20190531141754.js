@@ -3,8 +3,7 @@ import DatePicker from 'react-datepicker';
 import CitySearchInput from "./CitySearchInput";
 import CurrentSearchDate from "./CurrentSearchDate";
 import CurrentSearchCity from "./CurrentSearchCity";
-// import { ToastContainer, toast } from 'react-toastify';
-// import 'react-toastify/dist/ReactToastify.css';
+
 import {connect} from 'react-redux';
 import '../styles/CalendarSearchSection.css';
 import "react-datepicker/dist/react-datepicker.css";

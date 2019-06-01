@@ -24,6 +24,11 @@ export class FavoritesPage extends React.Component {
         if (this.props.loggedIn) {
             return <Redirect to="/" />;
         }
+        toast.info("Loading favorites...", {
+            autoClose: 3000,
+            hideProgressBar: false,
+        });
+
         const favoriteArtists = this.props.favoriteArtists.map((favoriteArtist, index) => (
             <FavoriteArtists
                 key={index}

@@ -7,7 +7,7 @@ export const setSearchDate = currentSearchDate => ({
     type: SET_SEARCH_DATE,
     currentSearchDate
 });
-// Fetch Metro area data
+
 export const FETCH_METRO_CODE_SUCCESS = 'FETCH_METRO_CODE_SUCCESS';
 export function fetchMetroCodeSuccess(metroCode, city) {
     return function (dispatch) {
@@ -19,6 +19,19 @@ export function fetchMetroCodeSuccess(metroCode, city) {
         toast.success("SET METRO AREA SUCCESSFUL");
     };
 }
+
+// export const FETCH_METRO_CODE_SUCCESS = 'FETCH_METRO_CODE_SUCCESS';
+// export const fetchMetroCodeSuccess = (metroCode, city) => ({
+//     type: FETCH_METRO_CODE_SUCCESS,
+//     metroCode,
+//     city
+// });
+
+// export const FETCH_METRO_CODE_ERROR = 'FETCH_METRO_CODE_ERROR';
+// export const fetchMetroCodeError = err => ({
+//     type: FETCH_METRO_CODE_ERROR,
+//     err
+// });
 
 export const FETCH_METRO_CODE_ERROR = 'FETCH_METRO_CODE_ERROR';
 export function fetchMetroCodeError(err) {
@@ -55,6 +68,7 @@ export const fetchMetroCode = (countryCode, stateValue, cityName) => dispatch =>
 
 
 // Fetch Events
+
 export const FETCH_EVENTS_SUCCESS = 'FETCH_EVENTS_SUCCESS';
 export function fetchEventsSuccess(eventsArr) {
     return function (dispatch) {
@@ -62,11 +76,15 @@ export function fetchEventsSuccess(eventsArr) {
             type: FETCH_EVENTS_SUCCESS,
             eventsArr
         });
-        toast.success("Events search SUCCESSFUL", {
-            autoClose: 1500
-        });
+        toast.success("Events search SUCCESSFUL");
     };
 }
+
+// export const FETCH_EVENTS_SUCCESS = 'FETCH_EVENT_SUCCESS';
+// export const fetchEventsSuccess = (eventsArr) => ({
+//     type: FETCH_EVENTS_SUCCESS,
+//     eventsArr
+// });
 
 export const FETCH_EVENTS_ERROR = 'FETCH_EVENTS_ERROR';
 export function fetchEventsError(err) {
@@ -78,6 +96,12 @@ export function fetchEventsError(err) {
         toast.error("Please set a metro area first!");
     };
 }
+
+// export const FETCH_EVENTS_ERROR = 'FETCH_EVENTS_ERROR';
+// export const fetchEventsError = err => ({
+//     type: FETCH_EVENTS_ERROR,
+//     err
+// });
 
 export const fetchEvents = (metroCode, dateSelected) => dispatch => {
     let eventsArr = [];
@@ -95,12 +119,12 @@ export const fetchEvents = (metroCode, dateSelected) => dispatch => {
         })
         .then(data => {
             let events = data.resultsPage.results.event;
-            let timerCount = events.length / 10 ;
-        
             for (let i = 0; i < events.length; i++) {
                 let performingArtists = [];
                 let performers = events[i].performance
                 let dateC = moment(events[i].start.date).format("MMMM D, YYYY");
+                // let clientDate = moment(dateC).format('MMMM Do YYYY');
+                // console.log(clientDate);
                 let eventDay = dateC;
                 let eventName = events[i].displayName.replace(` (${dateC})`, '');
 
@@ -111,6 +135,7 @@ export const fetchEvents = (metroCode, dateSelected) => dispatch => {
                         billSlot: performer.billing,
                         billIndex: performer.billingIndex,
                         event_id: events[i].id,
+                       
                     };
                     performingArtists.push(act);
                     return dispatch(fetchYTplaylists(act.artistName, act));
@@ -129,10 +154,9 @@ export const fetchEvents = (metroCode, dateSelected) => dispatch => {
                 }
                 eventsArr.push(evnt);
             }
-            
             toast.info("Loading events artists playlists...", {
-                autoClose: (timerCount * 2500),
-                hideProgressBar: false,
+                autoClose: 15000,
+                hideProgressBar: false
             });
             
             dispatch(fetchEventsSuccess(eventsArr));

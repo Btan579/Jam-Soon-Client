@@ -26,18 +26,18 @@ export class PerformerSection extends React.Component {
     render() {
         const opts = {
             height: '200',
-            width: '150',
+            width: '100',
             playerVars: { autoplay: 0 }
         };
         
         return (
             <div className="performer-section"
                 data-event_id={this.props.event_id}
-                data-artist_id={this.props.artist_id}
-                data-billindex={this.props.billIndex}
-                data-billslot={this.props.billSlot}
             >
                 <h5>{this.props.artistName}</h5>
+                <p>{this.props.artist_id}</p>
+                <p>{this.props.billIndex}</p>
+                <p>{this.props.billSlot}</p>
                 <YouTube
                     videoId={this.props.video_id}
                    opts={opts} 
