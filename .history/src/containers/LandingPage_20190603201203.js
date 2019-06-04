@@ -7,7 +7,6 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import LandingSection from "../components/LandingSection";
 import '../styles/LandingPage.css';
-
 import { landingSectionsData } from '../components/ComponentData';
 
 export class LandingPage extends React.Component {
@@ -24,8 +23,8 @@ export class LandingPage extends React.Component {
 
         return (
             <div className="App">
-                <Header />
                 <TopNav />
+                <Header />
                 <section id="banner">
                 <div className="inner">
                         <p>[Landing page cover photo-image Jamsoon placeholder]</p>

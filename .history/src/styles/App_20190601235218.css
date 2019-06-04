@@ -1,0 +1,21 @@
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+.App {
+  text-align: center;
+}
+
+
+	body {
+	  line-height: 1;
+	}

@@ -7,7 +7,6 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import LandingSection from "../components/LandingSection";
 import '../styles/LandingPage.css';
-
 import { landingSectionsData } from '../components/ComponentData';
 
 export class LandingPage extends React.Component {

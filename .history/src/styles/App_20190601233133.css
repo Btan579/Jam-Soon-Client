@@ -1,0 +1,22 @@
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  font-family: "Open sans", sans-serif;
+  position: relative;
+  min-height: 100%;
+  padding-bottom: 20px;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+.App {
+  text-align: center;
+}
+
+

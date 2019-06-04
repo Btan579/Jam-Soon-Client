@@ -35,8 +35,8 @@ export class TopNav extends React.Component {
               <li><Link to="/register" id="menu-link">Register</Link></li>
               <li><Link to="/favorites" id="menu-link">Favorites</Link></li>
             </ul>            
-            {/* {logOutButton}
-            {userInfo} */}
+            {logOutButton}
+            {userInfo}
           </nav>
         );
     }

@@ -29,14 +29,12 @@ export class TopNav extends React.Component {
       }
         return (
           <nav role="navigation" id="menu">
-            <ul className="links">
-              <li><Link to="/home" id="menu-link">Home</Link></li>
-              <li><Link to="/login" id="menu-link">Login</Link></li>
-              <li><Link to="/register" id="menu-link">Register</Link></li>
-              <li><Link to="/favorites" id="menu-link">Favorites</Link></li>
-            </ul>            
-            {/* {logOutButton}
-            {userInfo} */}
+            <Link to="/home"><span>Home</span></Link>
+            <Link to="/login"><span>Login</span></Link>
+            <Link to="/register"><span>Register</span></Link>
+            <Link to="/favorites"><span>Favorites</span></Link>
+            {logOutButton}
+            {userInfo}
           </nav>
         );
     }
