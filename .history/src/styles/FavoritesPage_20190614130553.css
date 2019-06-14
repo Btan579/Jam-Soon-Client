@@ -1,0 +1,10 @@
+.home-page {
+    margin: auto;
+    text-align: center;
+    background-color: #366ed8;
+    color: #f2f3f3;
+    text-shadow: -1px 1px 10px rgba(0, 0, 0, 0.897);
+    font-family: 'Noto Sans KR';
+    overflow: hidden;
+    position: relative;
+}

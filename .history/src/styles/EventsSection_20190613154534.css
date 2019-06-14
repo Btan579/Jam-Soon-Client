@@ -1,0 +1,12 @@
+.event-section {
+    margin-top: 50px;
+}
+
+#event-hr {
+    margin-top: 15px;
+    color: #f2f3f3;
+    background-color: #f2f3f3;
+    border: 0;
+    height: 5px;
+    width: 80%;
+}

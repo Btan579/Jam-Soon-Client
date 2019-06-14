@@ -1,0 +1,31 @@
+.favorites-page {
+    margin: auto;
+    text-align: center;
+    background-color: #366ed8;
+    color: #f2f3f3;
+    text-shadow: -1px 1px 10px rgba(0, 0, 0, 0.897);
+    font-family: 'Noto Sans KR';
+    overflow: hidden;
+    
+}
+
+#fav-artists-hr {
+    color: #f2f3f3;
+    background-color: #f2f3f3;
+    border: 0;
+    height: 5px;
+    width: 60%;
+    margin-bottom: 100px;
+    margin-top: 20px;
+}
+
+
+@media screen and (max-width: 600px) {
+    .favorites-page {
+        font-size: 75%;
+    }
+    #fav-artists-hr {
+       
+        margin-bottom: 50px;
+    }
+}

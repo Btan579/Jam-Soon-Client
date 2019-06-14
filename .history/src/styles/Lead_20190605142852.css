@@ -1,0 +1,31 @@
+.top-menu-lead {
+    padding: 10px;
+    background-color: #064acb;
+    color: white;
+    display: inline-block;
+    float: left;
+    font-size: 15px;
+}
+span, text > .top-menu-lead {
+    display: inline;
+}
+
+img {
+    height: 50px;
+    width: 50px;
+}
+
+@media screen and (max-width: 600px) {
+    .top-menu-lead {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        float: none;
+    }
+
+    span,
+    text>.top-menu-lead {
+        display: inline;
+    }
+
+}

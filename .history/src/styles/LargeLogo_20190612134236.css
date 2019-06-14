@@ -1,0 +1,10 @@
+#large-logo {
+    height: 100px;
+    width: 100px;
+}
+
+.large-logo {
+    position: relative;
+    background-color: #f3a953;
+    text-align: center;
+}

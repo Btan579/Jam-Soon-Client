@@ -1,0 +1,27 @@
+.top-menu-lead {
+    padding: 10px;
+    background-color: #000000;
+    color: white;
+    display: inline-block;
+    float: left;
+    font-size: 18px;
+}
+
+#header.alt {
+    
+   animation: none;
+   background-color: transparent;
+   box-shadow: none;
+   overflow: hidden;
+   position: absolute;
+   top: 1.5em;
+}
+
+@media screen and (max-width: 600px) {
+    .top-menu-lead {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        float: none;
+    }
+}

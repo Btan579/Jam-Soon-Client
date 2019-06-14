@@ -1,0 +1,30 @@
+/* Banner */
+
+#banner {
+   
+    justify-content: center;
+    background-image: url("../images/banner.jpeg");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    border-top: 0;
+    min-height: 100vh;
+   	height: 100vh !important;
+    width: 100%;
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+}
+
+	@media screen and (max-width: 736px) {
+
+	    #banner {
+	        min-height: 0;
+	        height: auto !important;
+	        padding: 6rem 2rem 4rem 2rem;
+	    }
+
+	  
+	    
+
+	}

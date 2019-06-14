@@ -1,0 +1,188 @@
+import { SONG_KICK_KEY, SONG_KICK_BASE_URL_METRO, SONG_KICK_BASE_URL_EVENT, YOU_TUBE_BASE_URL, YOU_TUBE_KEY } from '../config';
+import moment from 'moment';
+import { toast } from "react-toastify";
+
+export const SET_SEARCH_DATE = 'SET_SEARCH_DATE';
+export const setSearchDate = currentSearchDate => ({
+    type: SET_SEARCH_DATE,
+    currentSearchDate
+});
+// Fetch Metro area data
+export const FETCH_METRO_CODE_SUCCESS = 'FETCH_METRO_CODE_SUCCESS';
+export function fetchMetroCodeSuccess(metroCode, city) {
+    return function (dispatch) {
+        dispatch({
+            type: FETCH_METRO_CODE_SUCCESS,
+            metroCode,
+            city
+        });
+        toast.success("SET METRO AREA SUCCESSFUL");
+    };
+}
+
+export const FETCH_METRO_CODE_ERROR = 'FETCH_METRO_CODE_ERROR';
+export function fetchMetroCodeError(err) {
+    return function (dispatch) {
+        dispatch({
+            type: FETCH_METRO_CODE_ERROR,
+            err
+        });
+        toast.error("INVALID city input");
+    };
+}
+
+export const fetchMetroCode = (countryCode, stateValue, cityName) => dispatch => {
+    fetch(`${SONG_KICK_BASE_URL_METRO}${cityName},${stateValue},${countryCode}&apikey=${SONG_KICK_KEY}`)
+        .then(res => {
+            if (!res.ok) {
+                return Promise.reject(res.statusText);
+            }
+            return res.json();
+        })
+        .then(resdata => {
+           return resdata;
+        })
+        .then(data => {
+            let metrodata = data.resultsPage.results.location[0].metroArea.id;
+            let city = data.resultsPage.results.location[0].metroArea.displayName;
+            // console.log(metrodata);
+            dispatch(fetchMetroCodeSuccess(metrodata, city));
+        })
+        .catch(err => {
+            dispatch(fetchMetroCodeError(err));
+        });
+};
+
+
+// Fetch Events
+export const FETCH_EVENTS_SUCCESS = 'FETCH_EVENTS_SUCCESS';
+export function fetchEventsSuccess(eventsArr) {
+    return function (dispatch) {
+        dispatch({
+            type: FETCH_EVENTS_SUCCESS,
+            eventsArr
+        });
+        toast.success("Events search SUCCESSFUL", {
+            autoClose: 1500
+        });
+    };
+}
+
+export const FETCH_EVENTS_ERROR = 'FETCH_EVENTS_ERROR';
+export function fetchEventsError(err) {
+    return function (dispatch) {
+        dispatch({
+            type: FETCH_EVENTS_ERROR,
+            err
+        });
+        toast.error("Please set a metro area first!");
+    };
+}
+
+export const fetchEvents = (metroCode, dateSelected) => dispatch => {
+    let eventsArr = [];
+    fetch(`${SONG_KICK_BASE_URL_EVENT}${metroCode}/calendar.json?min_date=${dateSelected}&max_date=${dateSelected}&apikey=${SONG_KICK_KEY}`)
+        .then(async res => {
+            if (await !res.ok) {
+                let err = res.ok;
+                dispatch(fetchEventsError(err));
+                return Promise.reject(res.statusText);
+            }
+            return res.json();
+        })
+        .then(resdata => {
+            return resdata;
+        })
+        .then(data => {
+            let events = data.resultsPage.results.event;
+            let timerCount = events.length / 10 ;
+        
+            for (let i = 0; i < events.length; i++) {
+                let performingArtists = [];
+                let performers = events[i].performance
+                let dateC = moment(events[i].start.date).format("MMMM D, YYYY");
+                let eventDay = dateC;
+                let eventName = events[i].displayName.replace(` (${dateC})`, '');
+
+                performers.map(function (performer) {
+                    let act = {
+                        artist_id: performer.artist.id,
+                        artistName: performer.artist.displayName,
+                        billSlot: performer.billing,
+                        billIndex: performer.billingIndex,
+                        event_id: events[i].id,
+                    };
+                    performingArtists.push(act);
+                    return dispatch(fetchYTplaylists(act.artistName, act));
+                });
+
+                let venueName = events[i].venue.displayName;
+                let venueLocation = events[i].location.city;
+                let event_id = events[i].id;
+                let evnt = {
+                    eventDay: eventDay,
+                    eventName: eventName,
+                    venueName: venueName,
+                    venueLocation: venueLocation,
+                    event_id: event_id,
+                    performingArtists: performingArtists
+                }
+                eventsArr.push(evnt);
+            }
+            
+            toast.info("Loading events artists playlists...", {
+                autoClose: (timerCount * 3000),
+                hideProgressBar: false,
+            });
+            
+            dispatch(fetchEventsSuccess(eventsArr));
+        })
+        .catch(err => {
+            console.warn(err);
+        });
+};
+
+export const fetchYTplaylists = (videoQuery, act) => dispatch => {
+    fetch(`${YOU_TUBE_BASE_URL}?part=snippet&q=${videoQuery} music&type=video&maxResults=1&key=${YOU_TUBE_KEY}`)
+        .then(res => {
+            if (!res.ok) {
+                return Promise.reject(res.statusText);
+            }
+            return res.json();
+        })
+        .then(resdata => {
+            return resdata;
+        })
+        .then(data => {
+            const newAct = {
+                artist_id: act.artist_id,
+                artistName: act.artistName,
+                billSlot: act.billSlot,
+                billIndex: act.billIndex,
+                event_id: act.event_id,
+                video_id: data.items[0].id.videoId
+            }
+            dispatch(fetchYTSuccess(newAct));
+        })
+        .catch(err => {
+            dispatch(fetchYTError(err));
+        });
+};
+
+export const FETCH_YT_VIDEOS_SUCCESS = 'FETCH_YT_VIDEOS_SUCCESS';
+export const fetchYTSuccess = (video) => ({
+    type: FETCH_YT_VIDEOS_SUCCESS,
+    video
+});
+
+export const FETCH_YT_VIDEOS_ERROR = 'FETCH_YT_VIDEOS_ERROR';
+export const fetchYTError = err => ({
+    type: FETCH_YT_VIDEOS_ERROR,
+    err
+});
+
+export const CLEAR_EVENTS = 'CLEAR_EVENTS';
+export const clearEvents = initialState => ({
+    type: CLEAR_EVENTS,
+    initialState
+});

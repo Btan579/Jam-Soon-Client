@@ -1,0 +1,28 @@
+.login-form {
+    background-color: #f3a953;
+    max-width: 1040px;
+    margin: 0 auto 0 auto;
+    padding: 30px 20px 10px 20px;
+    color: #f2f3f3;
+    font-weight: 700;
+    text-align: center;
+    text-shadow: -1px 1px 10px rgba(0, 0, 0, 0.75);
+    font-family: 'Noto Sans KR';
+}
+
+.login-form label,
+.login-form button {
+     display: block;
+     padding: 3px;
+}
+
+.login-form button {
+    margin: 0 auto 0 auto;
+    width: 150px;
+    background-color: #064acb;
+    color: #f2f3f3;
+    border-radius: 15px;
+    margin-top: 10px;
+    border: 1px solid #064acb;
+    font-family: 'Noto Sans KR';
+}

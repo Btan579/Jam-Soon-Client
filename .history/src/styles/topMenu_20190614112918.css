@@ -1,0 +1,118 @@
+.top-menu {
+    background-color: #064acb;
+    padding: 20px 50px 20px 50px;
+    user-select: none;
+    font-family: 'Noto Sans KR';
+    
+}
+
+.top-menu>.right {
+    float: right;
+}
+
+.top-menu>.right>* {
+    margin-left: 5px;
+}
+
+.top-menu>.left {
+    float: left;
+    width: 50%;
+    height: 50%;
+    margin-left: 0;
+}
+
+.top-menu>.left>* {
+    margin-right: 5px;
+}
+
+.top-menu>.left>*,
+.top-menu>.right>* {
+    margin-top: 15px;
+    padding: 11.4px;
+    display: inline-block;
+    text-align: center;
+    min-width: 30px;
+    text-shadow: -1px 1px 10px rgba(0, 0, 0, 0.897);
+}
+
+.top-menu *:hover {
+    cursor: pointer;
+}
+
+.clear-fix {
+    clear: both;
+}
+
+.top-menu .top-menu-icon {
+    padding: 10px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: none;
+}
+
+.logout {
+    padding-left: 10px;
+    margin-left: 11.4px;
+    border-radius: 25px;
+    font-weight: bold;
+    background-color: #f3a953;
+    border: #f3a953;
+    color: #f2f3f3;
+    text-shadow: -1px 1px 10px rgba(0, 0, 0, 0.75);
+    
+}
+
+@media screen and (max-width: 600px) {
+    .top-menu {
+        padding: 25px 20px 20px 20px;
+        max-height: 0;
+        overflow: hidden;
+        padding-bottom: 50px;
+    }
+
+    .top-menu>.left,
+    .top-menu>.right {
+        display: none;
+    }
+
+    .top-menu-icon {
+        display: block !important;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .top-menu.toggled {
+        padding: 100px 0 0 0;
+        max-height: 1500px;
+        transition: max-height 1s;
+    }
+
+    .top-menu.toggled>.left {
+
+        margin: 15px 0 0 0;
+    }
+
+    .top-menu.toggled *:not(.top-menu-lead):not(.top-menu-icon):not(.logout) {
+        float: none;
+        display: block !important;
+        text-align: left;
+        margin: 0;
+
+    }
+    .top-menu-lead { 
+        padding: 0;
+    }
+
+    .top-menu-item {
+        float: right;
+    }
+
+    .right:last-child {
+       padding-bottom: 11.4px;
+    }
+
+    .left > button {
+        padding: 11.4px;
+    }
+    }

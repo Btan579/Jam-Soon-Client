@@ -1,0 +1,26 @@
+.calendar-search-section {
+    margin-bottom: 25px;
+}
+
+h3 {
+    padding-bottom: 10px;
+    padding-top: 10px;
+    margin-bottom: 10px;
+}
+
+label {
+    padding-top: 10px;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+#date-picker {
+    padding-bottom: 75px;
+}
+#citySearchInput, .stateDropD {
+    width: 150px;
+}
+
+#set-area-btn {
+    margin-top: 7px;
+}

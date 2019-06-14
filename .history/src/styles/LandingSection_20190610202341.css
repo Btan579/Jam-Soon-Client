@@ -1,0 +1,38 @@
+.landing {
+    background-color: #f2f3f3;
+    font-family: 'Noto Sans KR';
+    color: black;
+    text-align: center;
+    margin: auto;
+    padding: 10px;
+
+}
+
+.landing > hr {
+    border: 1px solid #f2f3f3;
+}
+
+
+@media screen and (max-width: 736px) {
+
+.landing {
+    background-color: #064acb;
+    font-family: 'Noto Sans KR';
+    color: #f2f3f3;
+    text-align: center;
+    margin: auto;
+    padding: 7.5px;
+
+}
+
+}
+
+@media screen and (max-width: 425px) {
+
+    .landing {
+        padding: 5px;
+        font-size: 85%;
+
+    }
+
+}

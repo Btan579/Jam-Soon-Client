@@ -1,0 +1,13 @@
+.landing {
+    background-color: #064acb;
+    font-family: 'Noto Sans KR';
+    color: #f2f3f3;
+    text-align: center;
+    margin: auto;
+    padding: 10px;
+
+}
+
+.landing > hr {
+    border: 1px solid #f2f3f3;
+}

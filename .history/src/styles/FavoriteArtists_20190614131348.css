@@ -1,0 +1,17 @@
+.fav-artist-hr {
+    color: #f2f3f3;
+    background-color: #f2f3f3;
+    border: 0;
+    height: 2px;
+    width: 20%;
+}
+
+.fav-artist-delete-btn {
+     padding: 8px;
+     border-radius: 25px;
+     font-weight: bold;
+     background-color: #f3a953;
+     border: #f3a953;
+     color: #f2f3f3;
+     text-shadow: -1px 1px 10px rgba(0, 0, 0, 0.85);
+}

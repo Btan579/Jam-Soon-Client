@@ -1,0 +1,29 @@
+footer {
+    background-color: #064acb;
+    position: absolute;
+    /* bottom: 0; */
+    /* max-width: 1040px; */
+    width: 100%;
+    height: 20px;
+    margin-top: 20px;
+    font-family: 'Noto Sans KR';
+    padding: 20px 30px 20px 30px;
+    color: #f2f3f3;
+}
+
+
+@media screen and (max-width: 600px) {
+   footer {
+       background-color: #064acb;
+       position: absolute;
+       /* bottom: 0; */
+       /* max-width: 1040px; */
+       /* width: 100%; */
+       height: 20px;
+       margin-top: 20px;
+       font-family: 'Noto Sans KR';
+       padding-top: 20px;
+       padding-bottom: 20px;
+       color: #f2f3f3;
+   }
+}

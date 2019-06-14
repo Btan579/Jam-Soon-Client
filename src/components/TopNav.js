@@ -13,27 +13,27 @@ export class TopNav extends React.Component {
     }
 
     render() {
-        let logOutButton;
-        if (this.props.loggedIn) {
-            logOutButton = (
-                <button onClick={() => this.logOut()}>Log out</button>
-            );
-        } 
-      let userInfo;
-      if (this.props.username !== ""){
-        userInfo = (
-          <div className="current-username">
-            Welcome!: {this.props.username}
-          </div>
-        );
-      }
+      //   let logOutButton;
+      //   if (this.props.loggedIn) {
+      //       logOutButton = (
+      //           <button onClick={() => this.logOut()}>Log out</button>
+      //       );
+      //   } 
+      // let userInfo;
+      // if (this.props.username !== ""){
+      //   userInfo = (
+      //     <div className="current-username">
+      //       Welcome!: {this.props.username}
+      //     </div>
+      //   );
+      // }
         return (
           <nav role="navigation" id="menu">
             <ul className="links">
-              <li><Link to="/home" id="menu-link">Home</Link></li>
-              <li><Link to="/login" id="menu-link">Login</Link></li>
-              <li><Link to="/register" id="menu-link">Register</Link></li>
-              <li><Link to="/favorites" id="menu-link">Favorites</Link></li>
+              <li><Link to="/home" id="menu-link-home">Home</Link></li>
+              <li><Link to="/login" id="menu-link-login">Login</Link></li>
+              <li><Link to="/register" id="menu-link-register">Register</Link></li>
+              <li><Link to="/favorites" id="menu-link-favorites">Favorites</Link></li>
             </ul>            
             {/* {logOutButton}
             {userInfo} */}
