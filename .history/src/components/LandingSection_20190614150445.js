@@ -6,8 +6,9 @@ export default function LandingSection(props) {
         <section id={props.sectionIndex} className="landing"
         >
                 <h3>{props.heading}</h3>
+                <hr></hr>
                 <h4>{props.subHeading}</h4>
-                <img src={props.image} alt="jamsoon landing" className="landing-image"/>
+                <img src={props.image} alt="jamsoon landing image" id="landing-image"/>
                 <p>{props.text}</p>
         </section>
     );

@@ -1,18 +1,24 @@
 .landing {
-   background-color: #064acb;
-   font-family: 'Noto Sans KR';
-   color: #f2f3f3;
-   text-align: center;
-   margin: auto;
+    background-color: #f2f3f3;
+    font-family: 'Noto Sans KR';
+    color: black;
+    text-align: center;
+    margin: auto;
     padding: 10px;
-    margin-bottom: 20px;
 
 }
 
+.landing > hr {
+   color: #f2f3f3;
+   background-color: #f2f3f3;
+   border: 0;
+   height: 2px;
+    
+}
 
 .landing-image {
-    height: 400px;
-    width: 800px;
+    height: 500px;;
+    width: 700px;
 }
 
 @media screen and (max-width: 736px) {
@@ -27,11 +33,6 @@
 
 }
 
-.landing-image {
-    height: 250px;
-    width: 500px;
-}
-
 }
 
 @media screen and (max-width: 425px) {
@@ -40,11 +41,6 @@
         padding: 5px;
         font-size: 85%;
 
-    }
-
-    .landing-image {
-        height: 140px;
-        width: 280px;
     }
 
 }

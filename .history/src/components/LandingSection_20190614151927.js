@@ -7,8 +7,9 @@ export default function LandingSection(props) {
         >
                 <h3>{props.heading}</h3>
                 <h4>{props.subHeading}</h4>
-                <img src={props.image} alt="jamsoon landing" className="landing-image"/>
+                <img src={props.image} alt="jamsoon landing image" className="landing-image"/>
                 <p>{props.text}</p>
+            {/* <hr></hr> */}
         </section>
     );
 };

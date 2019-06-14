@@ -7,21 +7,21 @@ export const landingSectionsData = [
         sectionIndex: "landing- 0",
         heading: "How it works",
         subHeading: "Start by entering a local metro area and date",
-        image: metroLanding,
+        image: "[Screenshot of interface with area input demo]",
         text: "After entering an area followed by a date, you will be shown a list of concerts thats happening on the selected day."
     },
     {
         sectionIndex: "landing- 1",
         heading: "Get all the details",
         subHeading: "And even listen",
-        image: eventLanding,
+        image: "[Screenshot of events for a specific day]",
         text: "All of the events details will be listed as well as a popular playlist from the artist."
     },
     {
         sectionIndex: "landing- 2",
         heading: "Keep track of what you love",
         subHeading: "Favorite artists and events",
-        image: favoriteLanding,
+        image: "[Screenshot user favorites page]",
         text: "Users who are registered are able to save an artist or save an event to their account favorites."
     }
 ];
