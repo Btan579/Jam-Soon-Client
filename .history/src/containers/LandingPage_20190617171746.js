@@ -31,7 +31,7 @@ export class LandingPage extends React.Component {
                         <h1>Jam Soon</h1>
                         <p><span>listen locally</span></p>
                         <div className="discover">
-                            <Link
+                            {/* <Link
                                 activeClass="active"
                                 to="landing- 0"
                                 spy={true}
@@ -39,7 +39,7 @@ export class LandingPage extends React.Component {
                                 offset={-70}
                                 duration={500}
                             >
-                                Discover more</Link>
+                                Discover more</Link> */}
                         </div>
                         
                         </div>
@@ -47,7 +47,7 @@ export class LandingPage extends React.Component {
                 <div className="landings">
                     {landingSections}
                 </div>
-                <RegisterForm />
+                {/* <RegisterForm /> */}
                 <Footer />
             </div>
         );

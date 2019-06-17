@@ -47,7 +47,7 @@ export class LandingPage extends React.Component {
                 <div className="landings">
                     {landingSections}
                 </div>
-                <RegisterForm />
+                {/* <RegisterForm /> */}
                 <Footer />
             </div>
         );

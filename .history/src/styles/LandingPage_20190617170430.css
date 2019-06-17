@@ -59,8 +59,8 @@
     -moz-transition-delay: 1.25s;
     -webkit-transition-delay: 1.25s;
     -ms-transition-delay: 1.25s; */
-    /* transition-delay: 1.25s; */
-    /* content: ''; */
+    transition-delay: 1.25s;
+    content: '';
     display: block;
     background-color: rgba(0, 0, 0, 0.80);
     height: 100%;

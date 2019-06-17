@@ -1,6 +1,12 @@
 import React from 'react';
 
 export default class Input extends React.Component {
+    componentDidUpdate(prevProps) {
+        if (!prevProps.meta.active && this.props.meta.active) {
+            this.input.focus();
+            console.log(this.input);
+        }
+    }
 
     render() {
         let error;
@@ -26,7 +32,7 @@ export default class Input extends React.Component {
                     {...this.props.input}
                     id={this.props.input.name}
                     type={this.props.type}
-                    ref={input => (this.inpt = input)}
+                    ref={input => (this.input = input)}
                 />
             </div>
         );
