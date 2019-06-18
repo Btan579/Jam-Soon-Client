@@ -1,6 +1,6 @@
 import jwtDecode from 'jwt-decode';
 import { SubmissionError } from 'redux-form';
-
+import { toast } from "react-toastify";
 import { API_BASE_URL } from '../config';
 import { normalizeResponseErrors } from './utils';
 import { saveAuthToken, clearAuthToken } from '../local-storage';
@@ -21,11 +21,25 @@ export const authRequest = () => ({
     type: AUTH_REQUEST
 });
 
+
+export const authSuccess = (currentUser, currentUserName, currentUser_id) => ({
+//     type: AUTH_SUCCESS,
+//     currentUser,
+//     currentUserName,
+//     currentUser_id,
+// });
 export const AUTH_SUCCESS = 'AUTH_SUCCESS';
-export const authSuccess = currentUser => ({
-    type: AUTH_SUCCESS,
-    currentUser
-});
+export function authSuccess(currentUser, currentUserName, currentUser_id) {
+    return function (dispatch) {
+        dispatch({
+            type: AUTH_SUCCESS,
+            currentUser,
+            currentUserName,
+            currentUser_id,
+        });
+        toast.success("Login successful!");
+    };
+}
 
 export const AUTH_ERROR = 'AUTH_ERROR';
 export const authError = error => ({
@@ -59,7 +73,7 @@ export const login = (username, password) => dispatch => {
             // errors which follow a consistent format
             .then(res => normalizeResponseErrors(res))
             .then(res => res.json())
-            .then(({ authToken }) => storeAuthInfo(authToken, dispatch))
+            .then(({ authToken }) => storeAuthInfo(authToken, dispatch) )
             .catch(err => {
                 const { code } = err;
                 const message =

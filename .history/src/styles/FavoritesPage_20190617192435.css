@@ -67,17 +67,18 @@ header {
     }
 }
 
-
-@media screen and (max-width: 1920px) {
-
-    .favorites-page > h2 {
-        margin: 50px;
-    }
-
-      .favorites-page>h2 {
-          padding: 50px;
-      }
-
-
+@media screen and (max-width: 1280px) {
+.favorites-page {
+    margin: auto;
+    text-align: center;
+    background-color: #366ed8;
+    color: #f2f3f3;
+    text-shadow: -1px 1px 10px rgba(0, 0, 0, 0.897);
+    font-family: 'Noto Sans KR';
+    overflow: hidden;
+    width: auto;
+    height: 100vh;
+}
+   
 
 }

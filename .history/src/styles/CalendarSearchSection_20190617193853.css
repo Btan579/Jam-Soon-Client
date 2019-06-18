@@ -33,10 +33,10 @@ label {
 }
 
 
-@media screen and (max-width: 1920px) {
+@media screen and (max-width: 1080px) {
 
-    .calendar-search {
-        margin: 100px;
+    .calendar-search-section {
+        margin: 50px;
     }
 
    

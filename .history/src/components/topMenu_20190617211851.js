@@ -21,7 +21,11 @@ export class TopMenu extends React.Component {
     }
 
     handleClickOutside(event) {
-        this.props.dispatch(toggleTopMenu(''));
+        if (this.props.menu_class_togg === '') {
+            this.props.dispatch(toggleTopMenu("toggled"));
+        } else {
+            this.props.dispatch(toggleTopMenu(''));
+        }
     }
     logOut() {
         this.props.dispatch(clearAuth());

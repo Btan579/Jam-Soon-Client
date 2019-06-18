@@ -91,7 +91,7 @@
 
 	    #banner {
 	        min-height: 0;
-	        height: 775px;
+	        height: 300px;
         }
         #banner h1 {
             font-size: 1.75em;
@@ -126,11 +126,14 @@
             padding-top: 25%;
             margin-bottom: 10px;
         }
-     
+         #banner {
+             width: 100%;
+             padding-top: 25%;
+             margin-bottom: 10px;
+         }
 
         #banner p {
             font-size: 1em;
-             margin-bottom: 35px;
         }
 
          .landings {

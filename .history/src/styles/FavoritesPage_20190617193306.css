@@ -67,17 +67,4 @@ header {
     }
 }
 
-
-@media screen and (max-width: 1920px) {
-
-    .favorites-page > h2 {
-        margin: 50px;
-    }
-
-      .favorites-page>h2 {
-          padding: 50px;
-      }
-
-
-
-}
+@

@@ -12,17 +12,9 @@ export const setAuthToken = authToken => ({
 });
 
 export const CLEAR_AUTH = 'CLEAR_AUTH';
-export function clearAuth() {
-    return function (dispatch) {
-        dispatch({
-            type: CLEAR_AUTH
-        });
-        toast.success("Logout successful!");
-    };
-}
-// export const clearAuth = () => ({
-//     type: CLEAR_AUTH
-// });
+export const clearAuth = () => ({
+    type: CLEAR_AUTH
+});
 
 export const AUTH_REQUEST = 'AUTH_REQUEST';
 export const authRequest = () => ({
@@ -69,10 +61,7 @@ export const login = (username, password) => dispatch => {
             // errors which follow a consistent format
             .then(res => normalizeResponseErrors(res))
             .then(res => res.json())
-            .then(({ authToken }) => {
-                storeAuthInfo(authToken, dispatch);
-                toast.success("Login successful!");
-            })
+            .then(({ authToken }) => storeAuthInfo(authToken, dispatch) toast.success("Event favorited successfully");)
             .catch(err => {
                 const { code } = err;
                 const message =
@@ -80,7 +69,6 @@ export const login = (username, password) => dispatch => {
                         ? 'Incorrect username or password'
                         : 'Unable to login, please try again';
                 dispatch(authError(err));
-                toast.error("Login unsuccessful!");
                 // Could not authenticate, so return a SubmissionError for Redux
                 // Form
                 return Promise.reject(

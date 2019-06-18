@@ -12,30 +12,34 @@ export const setAuthToken = authToken => ({
 });
 
 export const CLEAR_AUTH = 'CLEAR_AUTH';
-export function clearAuth() {
-    return function (dispatch) {
-        dispatch({
-            type: CLEAR_AUTH
-        });
-        toast.success("Logout successful!");
-    };
-}
-// export const clearAuth = () => ({
-//     type: CLEAR_AUTH
-// });
+export const clearAuth = () => ({
+    type: CLEAR_AUTH
+});
 
 export const AUTH_REQUEST = 'AUTH_REQUEST';
 export const authRequest = () => ({
     type: AUTH_REQUEST
 });
 
+
+// export const authSuccess = (currentUser, currentUserName, currentUser_id) => ({
+//     type: AUTH_SUCCESS,
+//     currentUser,
+//     currentUserName,
+//     currentUser_id,
+// });
 export const AUTH_SUCCESS = 'AUTH_SUCCESS';
-export const authSuccess = (currentUser, currentUserName, currentUser_id) => ({
-    type: AUTH_SUCCESS,
-    currentUser,
-    currentUserName,
-    currentUser_id,
-});
+export function authSuccess(currentUser, currentUserName, currentUser_id) {
+    return function (dispatch) {
+        dispatch({
+            type: AUTH_SUCCESS,
+            currentUser,
+            currentUserName,
+            currentUser_id,
+        });
+        
+    };
+}
 
 export const AUTH_ERROR = 'AUTH_ERROR';
 export const authError = error => ({

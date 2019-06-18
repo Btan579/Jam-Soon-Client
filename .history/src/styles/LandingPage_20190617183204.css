@@ -91,7 +91,7 @@
 
 	    #banner {
 	        min-height: 0;
-	        height: 775px;
+	        height: 300px;
         }
         #banner h1 {
             font-size: 1.75em;
@@ -130,7 +130,7 @@
 
         #banner p {
             font-size: 1em;
-             margin-bottom: 35px;
+             margin-bottom: 20px;
         }
 
          .landings {

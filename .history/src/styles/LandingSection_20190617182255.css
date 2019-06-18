@@ -15,7 +15,7 @@
     width: 800px;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 736px) {
 
 .landing {
     background-color: #064acb;

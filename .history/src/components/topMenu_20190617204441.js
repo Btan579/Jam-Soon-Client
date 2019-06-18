@@ -1,6 +1,6 @@
-import React from 'react';
+// import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
+import React, { useState } from "react";
 import onClickOutside from "react-onclickoutside";
 import { connect } from 'react-redux';
 import Item from './Item';
@@ -11,21 +11,18 @@ import { clearAuthToken } from '../local-storage';
 import '../styles/topMenu.css';
 
 export class TopMenu extends React.Component {
-    
     constructor(props) {
         super(props);
-        this.handleClickOutside = this.handleClickOutside.bind(this);
         this.state = {
             menu_class_togg: '',
         };
     }
-
-    handleClickOutside(event) {
-        this.props.dispatch(toggleTopMenu(''));
-    }
     logOut() {
         this.props.dispatch(clearAuth());
         clearAuthToken();
+    }
+    onClick(e) {
+        e.preventDefault();
     }
     setToggleTopMenuClass() {
         
@@ -37,12 +34,11 @@ export class TopMenu extends React.Component {
 
     }
 
- 
+
     render () {
         
         let logOutButton;
         let userInfo; let top_menu_class = `top-menu ${this.props.menu_class_togg}`;
-        
         if (this.props.loggedIn) {
             logOutButton = (
                 <button className="logout" onClick={() => this.logOut()}>Log out</button>
@@ -52,7 +48,7 @@ export class TopMenu extends React.Component {
                     Welcome! {this.props.username}
                 </div>
             );
-                
+
             return (
                 <div>
                     <div className={top_menu_class} >
@@ -114,4 +110,4 @@ const mapStateToProps = state => ({
     loggedIn: state.auth.currentUser !== null,
     username: state.auth.currentUserName
 });
-export default connect(mapStateToProps)(onClickOutside(TopMenu));
+export default connect(mapStateToProps)(TopMenu);

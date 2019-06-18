@@ -67,17 +67,16 @@ header {
     }
 }
 
+@media screen and (max-width: 1080px) {
+.favorites-page {
+     font-size: 125%;
+}
+   
+ #fav-artists-hr {
+     margin-bottom: 100px;
+ }
 
-@media screen and (max-width: 1920px) {
-
-    .favorites-page > h2 {
-        margin: 50px;
-    }
-
-      .favorites-page>h2 {
-          padding: 50px;
-      }
-
-
-
+ header {
+     margin-bottom: 40px;
+}
 }

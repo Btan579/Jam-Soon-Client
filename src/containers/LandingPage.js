@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from "react-redux";
 import { Link } from "react-scroll";
+import { Redirect } from 'react-router-dom';
 import RegisterForm from "../components/RegisterForm";
 import Footer from "../components/Footer";
 import LandingSection from "../components/LandingSection";
@@ -11,7 +12,9 @@ import { landingSectionsData } from '../components/ComponentData';
 export class LandingPage extends React.Component {
 
     render() {
-
+        if (this.props.loggedIn) {
+            return <Redirect to="/home" />;
+        }
         const landingSections = landingSectionsData.map((section, index) => (
             <LandingSection
             key={index}
@@ -55,7 +58,8 @@ export class LandingPage extends React.Component {
 }
 
 const mapStateToProps = state => ({
-    landingSections: state.landingSections
+    landingSections: state.landingSections,
+    loggedIn: state.auth.currentUser !== null,
 });
 
 export default connect(mapStateToProps)(LandingPage);
