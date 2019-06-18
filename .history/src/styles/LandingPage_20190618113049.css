@@ -52,15 +52,15 @@
 
 
 #banner:before {
-    -moz-transition: opacity 3s ease;
+    /* -moz-transition: opacity 3s ease;
     -webkit-transition: opacity 3s ease;
     -ms-transition: opacity 3s ease;
     transition: opacity 3s ease;
     -moz-transition-delay: 1.25s;
     -webkit-transition-delay: 1.25s;
-    -ms-transition-delay: 1.25s;
-    transition-delay: 1.25s;
-    content: '';
+    -ms-transition-delay: 1.25s; */
+    /* transition-delay: 1.25s; */
+    /* content: ''; */
     display: block;
     background-color: rgba(0, 0, 0, 0.80);
     height: 100%;
