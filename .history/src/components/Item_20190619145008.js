@@ -8,7 +8,7 @@ export class Item extends React.Component {
         super(props)
         this.state = {
             text: '',
-            to: '/'
+            to: ''
         };
     }
 
