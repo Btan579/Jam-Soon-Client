@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 export function CurrentSearchCity(props) {
     if (props.metroError) {
         return (
+            
             <div className="metro-search-error-cont">
                 <h3> Invalid city entered</h3>
                 <p>Please check the proper spelling or choose the correct state and try again</p>

@@ -37,7 +37,7 @@ export class FavoriteArtists extends React.Component {
                      opts={opts}
                  />
                  <button type="button"  className='fav-artist-delete-btn'
-                     onClick={() => this.deleteFavoriteArtist(this.props._id)}>Delete artist</button>
+                     >Delete artist</button>
                 <hr className="fav-artist-hr"></hr>
             </div>
         );

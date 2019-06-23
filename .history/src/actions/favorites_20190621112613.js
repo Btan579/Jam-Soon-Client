@@ -230,6 +230,10 @@ export function deleteFavoriteArtistSuccess(favoriteArtist) {
         toast.warning("Artist removed from favorites!");
     };
 }
+// export const deleteFavoriteArtistSuccess = ( favoriteArtist ) => ({
+//     type: DELETE_FAVORITE_ARTIST_SUCCESS,
+//     favoriteArtist
+// });
 
 export const DELETE_FAVORITE_ARTIST_ERROR = 'DELETE_FAVORITE_ARTIST_ERROR';
 export const deleteFavoriteArtistError = error => ({
@@ -266,6 +270,11 @@ export function deleteFavoriteEventSuccess(favoriteEvent) {
         toast.warning("Event removed from favorites!");
     };
 }
+
+// export const deleteFavoriteEventSuccess = (favoriteEvent) => ({
+//     type: DELETE_FAVORITE_EVENT_SUCCESS,
+//     favoriteEvent
+// });
 
 export const DELETE_FAVORITE_EVENT_ERROR = 'DELETE_FAVORITE_EVENT_ERROR';
 export const deleteFavoriteEventError = error => ({
