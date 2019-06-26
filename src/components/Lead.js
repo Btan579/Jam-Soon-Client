@@ -4,11 +4,9 @@ import logo from "../images/JS-logo-2.svg";
 import '../styles/Lead.css';
 
 export class Lead extends React.Component {
-
     constructor(props) {
         super(props);
         this.state = {
-            
         };
     }
 
@@ -19,9 +17,7 @@ export class Lead extends React.Component {
                     <Link to="/home" id="header-link">
                         <img src={logo} alt="jamsoon logo" id="logo"/>
                     </Link>
-
                     </div>
-                    
             </div>
         )
     }
