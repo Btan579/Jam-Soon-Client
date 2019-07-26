@@ -14,6 +14,7 @@ import RegisterPage from "./containers/RegisterPage";
 import FavoritesPage from "./containers/FavoritesPage";
 import { refreshAuthToken } from './actions/auth';
 import { ToastContainer } from "react-toastify";
+import ScrollToTop from './components/ScrollToTop';
 import 'react-toastify/dist/ReactToastify.css';
 import './styles/App.css';
 
@@ -48,11 +49,11 @@ export class App extends React.Component {
     }
     clearInterval(this.refreshInterval);
   }
-
+  
   render() {
     return (
       <Router history={history}>
-       
+        <ScrollToTop>
           <div className="App">
             <ToastContainer
               autoClose={2000}
@@ -67,7 +68,7 @@ export class App extends React.Component {
             <Route exact path="/favorites" component={FavoritesPage} />
             <Route exact path="/home" component={HomePage} />
           </div>
-       
+        </ScrollToTop>
       </Router>
     );
   }

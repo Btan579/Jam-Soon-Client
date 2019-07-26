@@ -5,7 +5,7 @@ import TopMenu from "../components/topMenu";
 import Footer from "../components/Footer";
 import FavoriteArtists from "../components/FavoriteArtists";
 import FavoriteEvents from "../components/FavoriteEvents";
-import { fetchFavoriteArtists, fetchFavoriteEvents, clearFavorites, deleteFavoriteArtist, deleteFavoriteEvent } from '../actions/favorites';
+import { fetchFavoriteArtists, fetchFavoriteEvents, clearFavorites, deleteFavoriteArtist } from '../actions/favorites';
 import '../styles/FavoritesPage.css';
 
 export class FavoritesPage extends React.Component {
@@ -18,17 +18,14 @@ export class FavoritesPage extends React.Component {
     componentWillUnmount() {
         this.props.dispatch(clearFavorites());
     }
-    deleteEvent(e, id) {
+    onclick(e, _id){
         e.preventDefault();
-        this.props.dispatch(deleteFavoriteEvent(id));
-        // console.log("delete event clicked");
-        // console.log(id);
+        console.log("on clicked");
+        this.deleteArtist(_id);
     }
-    deleteArtist(e, id) {
-        e.preventDefault();
-        this.props.dispatch(deleteFavoriteArtist(id));
-        // console.log("delete clicked");
-        // console.log(id);
+    deleteArtist(_id) {
+        this.props.dispatch(deleteFavoriteArtist(_id));
+        console.log("delete clicked");
     }
     render() {
         if (this.props.loggedIn) {
@@ -42,7 +39,7 @@ export class FavoritesPage extends React.Component {
                 _id={favoriteArtist._id}
                 currentUser_id={favoriteArtist.currentUser_id}
                 artist_id={favoriteArtist.artist_id}
-                onclickDeleteArtist={(e, id) => this.deleteArtist(e, id)}
+                onclick={onclick()}
             />
         ));
         return (
@@ -58,9 +55,7 @@ export class FavoritesPage extends React.Component {
                 <hr id="fav-artists-hr"></hr>
                 <h2>Events</h2>
                 <hr className="fav-header-hr"></hr>
-                <FavoriteEvents 
-                    onclickDeleteEvent={(e, id) => this.deleteEvent(e, id)}
-                />
+                <FavoriteEvents />
                 <Footer />
             </div>
         );

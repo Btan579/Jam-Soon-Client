@@ -3,19 +3,19 @@ import '../../styles/FavoriteArtists.css';
 import { shallow, mount } from 'enzyme';
 import YouTube from 'react-youtube';
 import { FavoriteArtists } from "../../components/FavoriteArtists";
-// import { deleteFavoriteArtist } from '../../actions/favorites';
+import { deleteFavoriteArtist } from '../../actions/favorites';
 
-// const mockdeleteFavoriteArtistdAction = {
-//     type: 'DELETE_FAVORITE_ARTIST'
-// };
-// jest.mock('../../actions/favorites', () => Object.assign({},
-//     require.requireActual('../../actions/favorites'),
-//     {
-//         deleteFavoriteArtist: jest.fn().mockImplementation(() => {
-//             return mockdeleteFavoriteArtistdAction;
-//         })
-//     }
-// ));
+const mockdeleteFavoriteArtistdAction = {
+    type: 'DELETE_FAVORITE_ARTIST'
+};
+jest.mock('../../actions/favorites', () => Object.assign({},
+    require.requireActual('../../actions/favorites'),
+    {
+        deleteFavoriteArtist: jest.fn().mockImplementation(() => {
+            return mockdeleteFavoriteArtistdAction;
+        })
+    }
+));
 
 describe('<FavoriteArtists />', () => {
     const seedFavArtists = [];

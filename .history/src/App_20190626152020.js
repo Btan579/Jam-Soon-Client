@@ -14,6 +14,7 @@ import RegisterPage from "./containers/RegisterPage";
 import FavoritesPage from "./containers/FavoritesPage";
 import { refreshAuthToken } from './actions/auth';
 import { ToastContainer } from "react-toastify";
+// import ScrollToTop from './components/ScrollToTop';
 import 'react-toastify/dist/ReactToastify.css';
 import './styles/App.css';
 

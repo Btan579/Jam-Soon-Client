@@ -42,7 +42,7 @@ export class FavoritesPage extends React.Component {
                 _id={favoriteArtist._id}
                 currentUser_id={favoriteArtist.currentUser_id}
                 artist_id={favoriteArtist.artist_id}
-                onclickDeleteArtist={(e, id) => this.deleteArtist(e, id)}
+                onclick={(e, id) => this.deleteArtist(e, id)}
             />
         ));
         return (

@@ -35,7 +35,6 @@ export class FavoriteEvents extends React.Component {
                         <h3>{event.favDate}</h3>
                         <h3>{event.favVenue}</h3>
                         <h3>{event.favVenueLocation}</h3>
-
                         {event.favArtists.sort((a, b) => a.billIndex > b.billIndex ? 1 : -1)
                         .map((favEvntArtist, k) => (
                             <FavoriteArtistsSection
@@ -48,9 +47,8 @@ export class FavoriteEvents extends React.Component {
                                 event_id={favEvntArtist.event_id}
                             />
                         ))}
-                        
                         <button type="button" className="fav-event-delete-btn"
-                            onClick={(e) => this.props.onclickDeleteEvent(e, event._id)}>Delete event</button>
+                            onClick={(e) => this.onclickDeleteEvent(e, event._id)}>Delete event</button>
                             <hr className="fav-event-hr"></hr>                
                     </div>
                 ))}

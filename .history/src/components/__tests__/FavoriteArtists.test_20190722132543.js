@@ -3,19 +3,19 @@ import '../../styles/FavoriteArtists.css';
 import { shallow, mount } from 'enzyme';
 import YouTube from 'react-youtube';
 import { FavoriteArtists } from "../../components/FavoriteArtists";
-// import { deleteFavoriteArtist } from '../../actions/favorites';
+import { deleteFavoriteArtist } from '../../actions/favorites';
 
-// const mockdeleteFavoriteArtistdAction = {
-//     type: 'DELETE_FAVORITE_ARTIST'
-// };
-// jest.mock('../../actions/favorites', () => Object.assign({},
-//     require.requireActual('../../actions/favorites'),
-//     {
-//         deleteFavoriteArtist: jest.fn().mockImplementation(() => {
-//             return mockdeleteFavoriteArtistdAction;
-//         })
-//     }
-// ));
+const mockdeleteFavoriteArtistdAction = {
+    type: 'DELETE_FAVORITE_ARTIST'
+};
+jest.mock('../../actions/favorites', () => Object.assign({},
+    require.requireActual('../../actions/favorites'),
+    {
+        deleteFavoriteArtist: jest.fn().mockImplementation(() => {
+            return mockdeleteFavoriteArtistdAction;
+        })
+    }
+));
 
 describe('<FavoriteArtists />', () => {
     const seedFavArtists = [];
@@ -77,11 +77,27 @@ describe('<FavoriteArtists />', () => {
         expect(wrapper.find('.favorite-artist').prop("data_id")).toBe(_id);
     });
 
+    // it('Dispatches deleteFavoriteArtist from deleteFavoriteArtist', () => {
+    //     const dispatch = jest.fn();
+    //     const wrapper = shallow(
+    //         <FavoriteArtists  dispatch={dispatch} />
+    //     );
+    //     const instance = wrapper.instance();
+    //     const _id = seedFavArtists[0]._id;
+    //     instance.deleteArtist(_id);
+    //     expect(dispatch).toHaveBeenCalledWith(mockdeleteFavoriteArtistdAction);
+    // });
+
+
     it('Should fire the deleteArtist callback when delete favorite artist button is clicked', () => {
+        // const mockdeleteFavoriteArtist = jest.fn();
         const callback = jest.fn();
         const wrapper = mount(<FavoriteArtists onclickDeleteArtist={callback} />);
+        // console.log(wrapper.debug());
         wrapper.find('.fav-artist-delete-btn').simulate('click');
         expect(callback).toHaveBeenCalled();
     });
+
+
 
 });

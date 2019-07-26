@@ -1,6 +1,7 @@
 import React from 'react';
 import '../styles/FavoriteArtists.css';
 import { connect } from 'react-redux';
+// import { deleteFavoriteArtist } from '../actions/favorites';
 import YouTube from 'react-youtube';
 
 export class FavoriteArtists extends React.Component {
@@ -34,7 +35,7 @@ export class FavoriteArtists extends React.Component {
                  />
                  <button type="button"  className='fav-artist-delete-btn'
                     
-                     onClick={(e) => this.props.onclickDeleteArtist(e, this.props._id)}>Delete artist</button>
+                     onClick={(e) => this.props.onclick(e, this.props._id)}>Delete artist</button>
 
                 
                 <hr className="fav-artist-hr"></hr>

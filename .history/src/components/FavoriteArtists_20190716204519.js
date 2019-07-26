@@ -1,6 +1,7 @@
 import React from 'react';
 import '../styles/FavoriteArtists.css';
 import { connect } from 'react-redux';
+// import { deleteFavoriteArtist } from '../actions/favorites';
 import YouTube from 'react-youtube';
 
 export class FavoriteArtists extends React.Component {
@@ -13,7 +14,13 @@ export class FavoriteArtists extends React.Component {
             artist_id: ''
         };
     }
-
+    // deleteArtist(_id) {
+    //     this.props.dispatch(deleteFavoriteArtist(_id));
+    // }
+    onclick(e) {
+        e.preventDefault();
+        console.log("on clicked");
+    }
     render() {
         const opts = {
             height: '200',
@@ -33,8 +40,7 @@ export class FavoriteArtists extends React.Component {
                      opts={opts}
                  />
                  <button type="button"  className='fav-artist-delete-btn'
-                    
-                     onClick={(e) => this.props.onclickDeleteArtist(e, this.props._id)}>Delete artist</button>
+                     onClick={(e) => this.props.onclick(e, this.props._id)}>Delete artist</button>
 
                 
                 <hr className="fav-artist-hr"></hr>
