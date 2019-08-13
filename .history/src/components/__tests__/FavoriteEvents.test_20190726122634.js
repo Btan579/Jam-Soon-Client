@@ -4,6 +4,10 @@ import { shallow, mount } from 'enzyme';
 import YouTube from 'react-youtube';
 import { FavoriteEvents } from "../../components/FavoriteEvents";
 
+import { should } from 'chai';
+// import chai from 'chai';
+// import chaiEnzyme from 'chai-enzyme';
+
 
 describe('<FavoriteEvents />', () => {
     const seedFavEvents = [];
@@ -64,7 +68,7 @@ describe('<FavoriteEvents />', () => {
     });
 
     it('Should fire the deleteEvent callback when delete favorite artist button is clicked', () => {
-        const callback = jest.fn();
+        const callback = jest.fn();;
         const wrapper = mount(<FavoriteEvents favoriteEvents={seedFavEvents} onclickDeleteEvent={callback} />);
         wrapper.find('.fav-event-delete-btn').first().simulate('click');
         jestExpect(callback).toHaveBeenCalled();

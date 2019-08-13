@@ -64,7 +64,7 @@ describe('<FavoriteEvents />', () => {
     });
 
     it('Should fire the deleteEvent callback when delete favorite artist button is clicked', () => {
-        const callback = jest.fn();
+        const callback = jest.fn();;
         const wrapper = mount(<FavoriteEvents favoriteEvents={seedFavEvents} onclickDeleteEvent={callback} />);
         wrapper.find('.fav-event-delete-btn').first().simulate('click');
         jestExpect(callback).toHaveBeenCalled();

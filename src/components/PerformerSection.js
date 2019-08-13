@@ -45,8 +45,7 @@ export class PerformerSection extends React.Component {
                 <button className="favorite-artist-btn" type="button" onClick={() => this.saveArtist(
                     this.props.artistName,
                     this.props.artist_id,
-                    this.props.video_id,
-                    this.props.event_id
+                    this.props.video_id
                 )}>Favorite artist</button>
                 <hr className="hr-artist"></hr>
             </div>

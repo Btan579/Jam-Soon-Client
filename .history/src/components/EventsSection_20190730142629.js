@@ -20,7 +20,6 @@ export class EventsSection extends React.Component {
                 billSlot: ''
             };
     }   
-    
     saveEvent(event) {
         let eventId = this.props.event_id;
         const performers = this.props.videosData.filter(performer => {
